@@ -1,3 +1,4 @@
+import { AuthService } from './../service/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,6 +20,7 @@ export class LoginPage implements OnInit {
   }
   validationFormUser: FormGroup;
   constructor(private _formbuilder : FormBuilder,
+    private authService : AuthService,
     private router: Router) { }
 
     ngOnInit() {
@@ -35,6 +37,7 @@ export class LoginPage implements OnInit {
     }
     loginUser(form){
       console.log(this.validationFormUser.value)
+       this.authService.login(this.validationFormUser.value);
 
     }
 }

@@ -1,4 +1,5 @@
-import { Register } from './../../IRegister';
+import { AuthService } from './../service/auth.service';
+import { Register } from '../IRegister';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -20,7 +21,8 @@ export class RegisterPage implements OnInit {
     ]
   }
   validationFormUser: FormGroup;
-  constructor(private _formbuilder : FormBuilder) { }
+  constructor(private _formbuilder : FormBuilder,
+    private authService : AuthService) { }
 
 
   ngOnInit() {
@@ -59,7 +61,7 @@ export class RegisterPage implements OnInit {
      email : this.validationFormUser.get('email').value,
     }
 
-      //this.authService.register(user, password);
+      this.authService.register(user, password);
 
   }
 }
