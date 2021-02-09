@@ -42,4 +42,8 @@ export class AuthService {
     this.firestore.doc("users/"+uid).set(data);
   }
 
+  onLogout() {
+    this.afAuth.signOut();
+  }
+
 }
