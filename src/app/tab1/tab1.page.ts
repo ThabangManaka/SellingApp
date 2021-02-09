@@ -1,3 +1,4 @@
+import { CategoryService } from './../service/category.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
-  constructor() {}
+  categories$;
+  categories: any;
+  constructor(private categoryService : CategoryService) {
+   this.categories$= categoryService.getCategories().subscribe(x => {
+    this.categories = x
+    console.log(this.categories)
+   });
+  }
 
 }
