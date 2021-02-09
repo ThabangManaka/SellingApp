@@ -1,9 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-content >
+  <h2 class="paragraph ion-text-center">Registration </h2>
+  <div  class="imgClass">
+    <ion-avatar class="avatar" >
+    <img src="../../assets/free_logos_dribbble_ph.jpg" />
+  </ion-avatar>
+  </div>
+<ion-card >
+  <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
+  <ion-item>
+    <ion-input name="firstname" formControlName="firstname" placeholder="First Name">
+      <ion-icon name="person"></ion-icon>
+    </ion-input>
+  </ion-item>
+      <ion-item>
+      <ion-input name="lastname" formControlName="lastname" placeholder="Last Name">
+        <ion-icon name="person"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="phone" type="number" formControlName="phone" placeholder="Phone">
+        <ion-icon name="call"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="email"  formControlName="email" placeholder="Email">
+        <ion-icon name="mail"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="password" formControlName="password" placeholder="Password">
+        <ion-icon name="lock-closed"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <div class="sign-btn-wrap">
+      <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Sign Up</ion-button>
+     </div>
+     </form>
+     <div class="ion-card-footer">
+       <ion-chip>
+        <button routerLink="/login" class="ion-no-padding">Login</button>
+       </ion-chip>
+
+    </div>
+</ion-card>
 
 </ion-content>
