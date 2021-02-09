@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
+<ion-content  class="bg">
+
+  <h2 class="paragraph ion-text-center">Login to Application</h2>
+  <div  class="imgClass">
+  <ion-avatar class="avatar" >
+  <img src="../../assets/free_logos_dribbble_ph.jpg" />
+</ion-avatar>
+</div>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
+
+
+      <div class="wrapform">
+      <ion-item lines="full">
+        <ion-icon name="mail"></ion-icon>
+
+        <ion-input type="text" name="email" formControlName="email" placeholder="Email"></ion-input>
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+           <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+           </div>
+          </ng-container>
+        </div>
+      </ion-item>
+          <ion-item>
+            <ion-icon name="lock-closed"></ion-icon>
+
+        <ion-input type="password" name="pasword" formControlName="password" placeholder="**********"></ion-input>
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Password">
+            <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+              {{validation.message}}
+             </div>
+          </ng-container>
+        </div>
+      </ion-item>
+      </div>
+      <div class="password_forgot">
+        <ion-button fill="clear" class="ion-no-padding">Forgot Password?</ion-button>
+      </div>
+      <div class="sign-btn-wrap">
+       <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Login </ion-button>
+      </div>
+
+  </form>
+    </ion-card-content>
+    <div class="ion-card-footer">
+      <span>Don't have an account?</span><button routerLink="/register" class="ion-no-padding">Sign Up</button>
+    </div>
+  </ion-card>
 </ion-content>
