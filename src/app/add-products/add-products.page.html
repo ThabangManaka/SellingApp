@@ -43,7 +43,19 @@
   <ion-input  name="Image URL" formControlName="Img" type="text" placeholder="Image" matInput required ></ion-input>
   <br>
 
+<ion-list>
 
+  <ion-item>
+    <ion-label>Category</ion-label>
+    <ion-select value="brown" formControlName="categoryName" okText="Okay" cancelText="Dismiss">
+      <ion-select-option value="brown">Brown</ion-select-option>
+      <ion-select-option value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="black">Black</ion-select-option>
+      <ion-select-option value="red">Red</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+</ion-list>
 
 
   <ion-button type="submit" shape="block" fill="solid" click="onSubmit()">Add Product</ion-button>
