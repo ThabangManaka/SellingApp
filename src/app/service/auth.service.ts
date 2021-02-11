@@ -45,5 +45,14 @@ export class AuthService {
   onLogout() {
     this.afAuth.signOut();
   }
+  forgotpassword(passwordResetEmail) {
+    return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert('Password reset email sent, check your inbox.');
+        this.router.navigate(["login"])
+      }).catch((error) => {
+        window.alert(error)
+      });
+  }
 
 }
