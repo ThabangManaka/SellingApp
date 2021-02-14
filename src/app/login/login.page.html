@@ -1,55 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button id="sign" routerLink="/register">Sign up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content>
 
-<ion-content  class="bg">
-
-  <h2 class="paragraph ion-text-center">Login to Application</h2>
-  <div  class="imgClass">
-  <ion-avatar class="avatar" >
-  <img src="../../assets/free_logos_dribbble_ph.jpg" />
-</ion-avatar>
-</div>
-  <ion-card>
-    <ion-card-content>
-      <form [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
-
-
-      <div class="wrapform">
-      <ion-item lines="full">
-        <ion-icon name="mail"></ion-icon>
-
-        <ion-input type="text" name="email" formControlName="email" placeholder="Email"></ion-input>
-        <div>
-          <ng-container *ngFor="let validation of  valdationUserMessage.Email">
-           <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+  <div id="header">
+    <h2>Login to <br />Application</h2>
+    <img src="../../assets/free_logos_dribbble_ph.jpg" />
+  </div>
+  <!-- <h2 class="paragraph ion-text-center">Login to Application</h2>
+  <div class="imgClass">
+    <ion-avatar class="avatar">
+      <img src="../../assets/free_logos_dribbble_ph.jpg" />
+    </ion-avatar>
+  </div> -->
+  <!-- <ion-card>
+    <ion-card-content> -->
+  <form id="form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
+    <!-- <div class="wrapform"> -->
+    <ion-item transparent>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input type="text" name="email" formControlName="email" placeholder="Email"></ion-input>
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+          <div class="error_message"
+            *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
             {{validation.message}}
-           </div>
-          </ng-container>
-        </div>
-      </ion-item>
-          <ion-item>
-            <ion-icon name="lock-closed"></ion-icon>
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+    <ion-item transparent>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input type="password" name="pasword" formControlName="password" placeholder="**********"></ion-input>
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.Password">
+          <div class="error_message"
+            *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+    <!-- </div> -->
+    <ion-label class="forgot-password" routerLink="/forgot-password">Forgot password?</ion-label>
+    <div linespace></div>
 
-        <ion-input type="password" name="pasword" formControlName="password" placeholder="**********"></ion-input>
-        <div>
-          <ng-container *ngFor="let validation of  valdationUserMessage.Password">
-            <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
-              {{validation.message}}
-             </div>
-          </ng-container>
-        </div>
-      </ion-item>
-      </div>
-      <div class="password_forgot">
-        <ion-button fill="clear" class="ion-no-padding" routerLink="/forgot-password">Forgot Password?</ion-button>
-      </div>
-      <div class="sign-btn-wrap">
-       <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Login </ion-button>
-      </div>
+    <ion-button class="submit" type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">
+      Login </ion-button>
 
+      <ion-label class="ion-text-center">Don't have an account? <span class="link-button" routerLink="/register">Sign Up</span>
+
+      </ion-label>
   </form>
-    </ion-card-content>
-    <div class="ion-card-footer">
-      <span>Don't have an account?</span><button routerLink="/register" class="ion-no-padding">Sign Up</button>
-    </div>
-  </ion-card>
+  <!-- </ion-card-content> -->
+  <!-- <div class="ion-card-footer">
+    <span></span><button  class="ion-no-padding"></button>
+  </div> -->
+  <!-- </ion-card> -->
 </ion-content>
