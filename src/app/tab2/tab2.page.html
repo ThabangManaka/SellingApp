@@ -1,17 +1,84 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+     Selling
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-content>
+      <form method="post" enctype="multipart/form-data" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+      <div class="wrapform">
+        <ion-item>
+          <div>
+            <div><b>Upload photo</b></div><br/>
+            <input type="file" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true"/>
+          </div>
+        </ion-item>
+      <ion-item lines="full">
+
+
+        <ion-input type="text" name="email" formControlName="email" placeholder="Name"></ion-input>
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+           <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+           </div>
+          </ng-container>
+        </div>
+      </ion-item>
+      <ion-item lines="full">
+
+
+        <ion-input type="text" name="email" formControlName="email" placeholder="Price"></ion-input>
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+           <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+           </div>
+          </ng-container>
+        </div>
+      </ion-item>
+
+      <ion-item lines="full">
+
+
+        <ion-input type="text" name="email" formControlName="email" placeholder="Location"></ion-input>
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+           <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+            {{validation.message}}
+           </div>
+          </ng-container>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select placeholder="Select Category">
+          <ion-select-option value="f">Female</ion-select-option>
+          <ion-select-option value="m">Male</ion-select-option>
+        </ion-select>
+      </ion-item>
+    <ion-item>
+      <ion-textarea type="text" name="description" placeholder="Description">
+
+      </ion-textarea>
+    </ion-item>
+      <div *ngIf="barStatus">
+
+      </div>
+
+      </div>
+
+      <div class="sign-btn-wrap">
+       <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Save </ion-button>
+      </div>
+
+  </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
