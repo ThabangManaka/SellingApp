@@ -1,6 +1,5 @@
 ion-toolbar {
   --background: #f5f5f3;
-
   ion-button {
     text-transform: initial;
     font-size: 17px;
@@ -8,7 +7,7 @@ ion-toolbar {
 }
 
 ion-content {
-  --background: purple;
+  --background: #f5f5f3;
 
   #header {
     display: flex;
@@ -17,53 +16,64 @@ ion-content {
 
     h2 {
       font-weight: 700;
-      font-size: 26px;
+      font-size: 22px;
       color: #010100;
-      margin-bottom: 15%;
+      margin-bottom: 0%;
+      text-align: center;
     }
 
     img {
-      width: 125px;
-      height: 125px;
-      margin-right:-50%;
+      width: 95px;
+      height: 70px;
       border-radius: 50%;
-      border: 8px solid #ffffff;
+      border: 5px solid #a9e7f0;
     }
   }
 
-  #form {
-    margin-top: 15%;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
+  .form {
+    margin-top: 1%;
+    padding-left: 15px;
+    padding-right: 15px;
 
-    ion-button {
-      margin-top: 35px;
+  ion-button {
+    margin-top: 20px;
       height: 48px;
       font-size: 18px;
       text-transform: initial;
       border-radius: 50px;
       box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
       --box-shadow: none;
-    }
-  
-  
-
-  ion-icon
-  {
-color: purple;
   }
-
-  ion-input
-  {
-   color:black;
-  }
-
-  img {
-   
-    margin-left: 4cm;
-    border-radius: 50%;
-  
-  }
-
+}
+}
+[transparent]{
+  --background: transparent;
+}
+ion-input{
+  --color:#000;
+  --padding-bottom:15px;
+  --padding-top:15px;
+  --padding-start: 5px;
+  font-size:15px;
+  text-indent:1px;
+  padding-left: 10px !important;
+}
+ion-icon{
+  width:20px;
+  color: grey;
+}
+ion-item{
+  --highlight-color-focused: transparent;
+  --highlight-height:0;
+  --highlight-color-invalid:#000;
+  --highlight-color-valid:#ddd;
+  --min-height: 50px;
+  --padding-start:0;
+}
+.info{
+  color:#000;
+  opacity:.8;
+  font-size:13px;
+  display: block;
+  text-align: center;
 }

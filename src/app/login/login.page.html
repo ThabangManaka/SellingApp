@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button id="sign" routerLink="/register">Sign up</ion-button>
+      <ion-button color="primary" routerLink="/register">Sign up</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -43,7 +43,7 @@
     <ion-label class="forgot-password" routerLink="/forgot-password">Forgot password?</ion-label>
     <div linespace></div>
 
-    <ion-button class="submit" type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">
+    <ion-button color="primary" type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">
       Login </ion-button>
 
       <ion-label class="ion-text-center">Don't have an account? <span class="link-button" routerLink="/register">Sign Up</span>

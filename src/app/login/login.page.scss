@@ -25,6 +25,7 @@ ion-content {
       font-size: 26px;
       color: #010100;
       margin-bottom: 5%;
+      text-align: center;
     }
 
     img {
@@ -66,6 +67,7 @@ ion-input{
 }
 ion-icon{
   width:30px;
+  color: grey;
 }
 ion-item{
   --highlight-color-focused: transparent;
@@ -91,8 +93,6 @@ ion-label{
   text-align: center;
   padding: 5px;
 }
-.submit{
-  color: #a9e7f0;
-}
+
 
 

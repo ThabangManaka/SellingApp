@@ -1,49 +1,51 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content >
-  <h2 class="paragraph ion-text-center">Registration </h2>
-  <div  class="imgClass">
-    <ion-avatar class="avatar" >
+<ion-content>
+
+  <div id="header">
+    <h2>Create your<br />Account</h2>
     <img src="../../assets/free_logos_dribbble_ph.jpg" />
-  </ion-avatar>
   </div>
-<ion-card >
-  <form [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
-  <ion-item>
-    <ion-input name="firstname" formControlName="firstname" placeholder="First Name">
-      <ion-icon name="person"></ion-icon>
-    </ion-input>
-  </ion-item>
-      <ion-item>
-      <ion-input name="lastname" formControlName="lastname" placeholder="Last Name">
-        <ion-icon name="person"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input name="phone" type="number" formControlName="phone" placeholder="Phone">
-        <ion-icon name="call"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input name="email"  formControlName="email" placeholder="Email">
-        <ion-icon name="mail"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input name="password" formControlName="password" placeholder="Password">
-        <ion-icon name="lock-closed"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <div class="sign-btn-wrap">
-      <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Sign Up</ion-button>
-      <ion-button  routerLink="/login" type="submit" shape="block" fill="solid" class="sign-btn">Login</ion-button>
-     </div>
-     </form>
-     <div class="ion-card-footer">
-       <ion-chip>
-      
-       </ion-chip>
 
-    </div>
-</ion-card>
+
+  <form class="form" [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
+    <ion-item transparent>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input name="firstname" formControlName="firstname" placeholder="First Name"> </ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-input name="lastname" formControlName="lastname" placeholder="Last Name">
+      </ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-input name="phone" type="number" formControlName="phone" placeholder="Phone">
+      </ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-input name="email" formControlName="email" placeholder="Email">
+      </ion-input>
+    </ion-item>
+    <ion-item transparent>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-input name="password" formControlName="password" placeholder="Password">
+      </ion-input>
+    </ion-item>
+
+    <ion-button color="primary" type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Sign
+      Up</ion-button>
+
+      <p class="info">By pressing 'Sign Up' you agree to <br />our terms & conditions.</p>
+
+  </form>
+
 
 </ion-content>
