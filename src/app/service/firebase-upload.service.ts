@@ -25,6 +25,7 @@ export class FirebaseUploadService {
         pictureRef.put(imageData).then(function(){
 
           pictureRef.getDownloadURL().subscribe((url:any)=>{
+
             resolve(url);
           })
 
