@@ -16,18 +16,13 @@
   <ion-row >
     <ion-col size="4"  *ngFor="let c of  categories  ">
 
-      <!-- href="tab1/{{c.name}}"  -->
-
-        <ion-avatar   class="image-center ion-text-center">
+        <ion-avatar  [routerLink]="['/','tabs','tab1',c.name]"  class="image-center ion-text-center">
         <ion-icon class=" ion-text-center" name={{c.icon}}></ion-icon>
         </ion-avatar>
           <div  class="txtName ion-text-center">
-            <ion-label [routerLink]="['tab1/'+ c.name]" >{{c.name}}</ion-label>
+            <ion-label [routerLink]="['/','tabs','tab1',c.name]" >{{c.name}}</ion-label>
 
           </div>
-
-
-
 
     </ion-col>
 

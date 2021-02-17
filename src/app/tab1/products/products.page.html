@@ -12,7 +12,7 @@
 
 <ion-content>
 <ion-card *ngFor="let p of products">
-  <ion-item    detail>
+  <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
     <ion-thumbnail slot="start">
       <img src={{p.imageName}} >
     </ion-thumbnail>

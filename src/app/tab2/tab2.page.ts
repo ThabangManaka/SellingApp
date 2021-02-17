@@ -4,6 +4,7 @@ import { FirebaseUploadService } from './../service/firebase-upload.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoadingController, ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -44,10 +45,13 @@ export class Tab2Page implements OnInit {
       private router: Router,
       private firebaseUploadService : FirebaseUploadService,
       private categoryService : CategoryService,
-      private productService : ProductService) {
+      private productService : ProductService,
+      private loadingController: LoadingController,
+      private toastController: ToastController
+      ) {
         this.categories$= categoryService.getCategories().subscribe(x => {
           this.categories = x
-          console.log(this.categories)
+       //   console.log(this.categories)
          });
        }
 
@@ -81,11 +85,43 @@ export class Tab2Page implements OnInit {
       ])),
     })
   }
-  productForm() {
+  async productForm() {
     this.validationFormUser.value.imageName = this.imageUrl;
+    const toast = await this.toastController.create({
+      message: 'Product Uploaded Successfully...',
+
+      duration: 2000,
+      position: "bottom",
+      animated: true,
+      color: "warning",
+      buttons: [
+          {
+
+              side: "end",
+              icon: 'checkmark-circle-outline',
+              role: "cancel",
+
+          }
+      ]
+  });
+  const loader = await this.loadingController.create({
+    message: 'Please Wait..',
+    animated: true,
+    duration: 4000,
+    spinner: "circles",
+    backdropDismiss: false,
+    showBackdrop: true
+});
+
 
     this.productService.addProduct( this.validationFormUser.value).then(res =>{
-      this.router.navigateByUrl('/tabs/tab1');
+
+     toast.present().then();
+     loader.present().then(res => {
+      this.router.navigateByUrl('/tabs/tab1')
+     });
+
+    loader.dismiss().then();
     } ).catch(res => {
       console.log(res);
     });

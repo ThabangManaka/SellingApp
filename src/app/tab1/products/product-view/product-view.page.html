@@ -5,5 +5,22 @@
 </ion-header>
 
 <ion-content>
+  <ion-card>
+    <img src="{{products?.imageName}}" >
+  </ion-card>
+  <h1 >{{products?.name}}</h1>
 
+  <h2>{{products?.location}}</h2>
+  <ion-item  lines="none">
+    <div class="price">
+    <h1>{{products?.price}}</h1>
+    </div>
+     <div class="btnCart">
+      <ion-button>Add To Cart</ion-button>
+     </div>
+  </ion-item>
+
+  <ion-card>
+    {{products?.description}}
+  </ion-card>
 </ion-content>
