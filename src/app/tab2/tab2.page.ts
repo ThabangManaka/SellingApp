@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { Product } from '../IProduct';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -58,31 +59,18 @@ export class Tab2Page implements OnInit {
   ngOnInit() {
     this.validationFormUser = this._formbuilder.group({
 
-      name: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(3)
+      name: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(3)
       ])),
-      price: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(2)
+      price: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)
       ])),
 
-      location: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(5)
+      location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5)
       ])),
-      category: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(5)
+      category: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)
       ])),
-      description: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(5)
+      description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)
       ])),
-      imageName: new FormControl('', Validators.compose([
-        Validators.required,
-
-      ])),
+      imageName: new FormControl('', Validators.compose([ Validators.required,])),
     })
   }
   async productForm() {
@@ -113,7 +101,12 @@ export class Tab2Page implements OnInit {
     showBackdrop: true
 });
 
-
+// const product: Product = {
+// name : this.validationFormUser.get('name').value,
+//  price : this.validationFormUser.get('price').value,
+//   phone : this.validationFormUser.get('phone').value,
+//   //email : this.validationFormUser.get('email').value,
+//  }
     this.productService.addProduct( this.validationFormUser.value).then(res =>{
 
      toast.present().then();
