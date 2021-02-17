@@ -1,0 +1,43 @@
+ion-card
+{
+margin:0.4cm;
+background-color: purple;
+}
+ion-card-title
+{
+   text-align: center; 
+}
+ion-content
+{
+    text-align:center;
+    font-size: 7%;
+}
+h2{
+    font-weight: bolder;
+    text-align: center;
+    
+}
+
+ion-card
+{
+    background-color: blueviolet;
+}
+
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }

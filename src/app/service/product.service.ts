@@ -39,4 +39,16 @@ export class ProductService {
    return this.db.object('/products/'+ id).valueChanges();
 
   }
+
+
+
+ searchproduct(firstName: string) {
+  console.log(this.query);
+    const query = this.db.list('/products/', ref => ref.orderByChild('name').equalTo(firstName))
+    
+    return query;
+    
+  }
+
+  
 }
