@@ -11,21 +11,29 @@
 </ion-header>
 
 <ion-content>
+  <ion-searchbar [(ngModel)]="query" (ionChange)="searchUser(query)"></ion-searchbar>
+
+
+  
+
 <ion-card *ngFor="let p of products">
   <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
-    <ion-thumbnail slot="start">
-      <img src={{p.imageName}} >
-    </ion-thumbnail>
-    <div class="ion-text-center">
-      <h1>{{p.price}}</h1>
-    </div>
-    <div>
-      <p>{{p.name}}</p>
-    </div>
+  <ion-grid>
+   <ion-row>
+    <ion-col>
+  <img src={{p.imageName}}>
+  </ion-col>
+  <ion-col>
 
-   <div >
-     {{p.location}}
-   </div>
+    <!-- <ion-avatar item-start> <p>{{p.price}}</p> </ion-avatar> -->
+    <h2>{{p.name}}</h2>
+ <ion-card-title>R{{p.price}}</ion-card-title>
+  <ion-card-content>
+    {{p.location}}
+  </ion-card-content>
+  </ion-col>
+   </ion-row>
+  </ion-grid>
   </ion-item>
 </ion-card>
 </ion-content>
