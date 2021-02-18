@@ -8,10 +8,11 @@
     </ion-buttons>
     <ion-title>Products List</ion-title>
   </ion-toolbar>
+  <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar [(ngModel)]="query" (ionChange)="searchUser(query)"></ion-searchbar>
+
 
 
 
@@ -25,15 +26,5 @@
   </ion-col>
   <ion-col>
 
-    <!-- <ion-avatar item-start> <p>{{p.price}}</p> </ion-avatar> -->
-    <h2>{{p.name}}</h2>
- <ion-card-title>R{{p.price}}</ion-card-title>
-  <ion-card-content>
-    {{p.location}}
-  </ion-card-content>
-  </ion-col>
-   </ion-row>
-  </ion-grid>
-  </ion-item>
 </ion-card>
 </ion-content>
