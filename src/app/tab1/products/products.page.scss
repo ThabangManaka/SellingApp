@@ -1,22 +1,49 @@
 ion-card
 {
-margin:0.4cm;
-background-color:white;
-width: 4cm;
-height: 4.5cm;
-padding: 5%;
-font-variant: small-caps;
-
+// margin:0.4cm;
+// background-color:white;
+width: 4.5cm;
+height: 6cm;
+// padding: 5%;
+// font-variant: small-caps;
 }
+
+
 
 ion-content
 {
   background-color: purple;
+  color: black;
+  font-variant: small-caps;
+ 
 }
 img{
   height: 2cm;
-  width: 2cm;
+  width: 4cm;
   margin-top: 0.1cm;
+
+  display: block;
+ 
+  width: 50%;
+}
+.name
+{
+  background-color:rgb(255, 242, 255);
+  margin-top: 2px;
+  color: black;
+  padding:10%;
+ 
+  font-size: 18px;
+  line-height: 1.1 ;
+}
+ion-icon
+{
+  color: purple;
+}
+.price
+{
+  color: purple;
+  margin-right: 40%;
 }
 
 

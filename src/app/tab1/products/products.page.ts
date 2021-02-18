@@ -2,6 +2,7 @@ import { ProductService } from './../../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { CurrencyPipe } from '@angular/common'
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
@@ -11,9 +12,13 @@ export class ProductsPage implements OnInit {
   id;
  products$;
  products: any;
+ formatedOutputValue: any;
+
+ outputValue: string = '54781.7622000';
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
-    private loadingController: LoadingController,) { }
+    private loadingController: LoadingController,
+    private cp: CurrencyPipe) { }
 
   async ngOnInit() {
     const loader = await this.loadingController.create({
@@ -33,7 +38,8 @@ export class ProductsPage implements OnInit {
     this.products = res
     loader.dismiss().then();
 
- }),this.searchproduct
+ }),this.searchproduct,
+ this.formatedOutputValue = this.cp.transform(this.outputValue, 'USD', 'symbol', '1.1');
   }
 
 

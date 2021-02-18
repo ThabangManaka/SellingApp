@@ -42,13 +42,26 @@ export class ProductService {
 
 
 
- searchproduct(Name: string) {
-  console.log(this.query);
-    const query = this.db.list('/products/', ref => ref.orderByChild('name').equalTo(Name)).snapshotChanges()
-    
-    return query;
-    
-  }
+  searchproduct(Name) {
 
+    // let val;
+    // val=Name
+    // if (val.trim() !== '') 
+    //  {
+      
+    return this.db.list('/products', ref => ref.orderByChild("name")
+    .equalTo(Name.toLowerCase())).snapshotChanges()
+    .pipe(map(actions => actions.map(a => {
+   
+     const key = a.payload.key;
   
-}
+     let obj:any = a.payload.val()
+   
+     return {key, ...obj};
+    })
+    ));
+    
+    }
+  
+  
+  }
