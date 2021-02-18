@@ -39,4 +39,29 @@ export class ProductService {
    return this.db.object('/products/'+ id).valueChanges();
 
   }
-}
+
+
+
+  searchproduct(Name) {
+
+    // let val;
+    // val=Name
+    // if (val.trim() !== '') 
+    //  {
+      
+    return this.db.list('/products', ref => ref.orderByChild("name")
+    .equalTo(Name.toLowerCase())).snapshotChanges()
+    .pipe(map(actions => actions.map(a => {
+   
+     const key = a.payload.key;
+  
+     let obj:any = a.payload.val()
+   
+     return {key, ...obj};
+    })
+    ));
+    
+    }
+  
+  
+  }
