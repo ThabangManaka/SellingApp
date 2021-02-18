@@ -33,14 +33,14 @@ export class ProductsPage implements OnInit {
     this.products = res
     loader.dismiss().then();
 
- })
+ }),this.searchproduct
   }
 
 
 
-  searchUser(query: string) { // I add '.valueChanges()' because the .subscribes is deprecated
-    this.productService.searchproduct(query).valueChanges().subscribe(searchedproducts => { 
-      this.products = searchedproducts; // The error is on the 'this.profileList'
+  searchproduct(query) { 
+    this.productService.searchproduct(query).subscribe(searchedproducts => { 
+      this.products = searchedproducts; 
 
       console.log(searchedproducts);
     })

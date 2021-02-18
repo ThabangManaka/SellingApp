@@ -1,27 +1,25 @@
 ion-card
 {
 margin:0.4cm;
-background-color: purple;
-}
-ion-card-title
-{
-   text-align: center; 
-}
-ion-content
-{
-    text-align:center;
-    font-size: 7%;
-}
-h2{
-    font-weight: bolder;
-    text-align: center;
-    
+background-color:white;
+width: 4cm;
+height: 4.5cm;
+padding: 5%;
+font-variant: small-caps;
+
 }
 
-ion-card
+ion-content
 {
-    background-color: blueviolet;
+  background-color: purple;
 }
+img{
+  height: 2cm;
+  width: 2cm;
+  margin-top: 0.1cm;
+}
+
+
 
 .container {
     padding-top: 50px;

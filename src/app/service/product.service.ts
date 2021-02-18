@@ -42,9 +42,9 @@ export class ProductService {
 
 
 
- searchproduct(firstName: string) {
+ searchproduct(Name: string) {
   console.log(this.query);
-    const query = this.db.list('/products/', ref => ref.orderByChild('name').equalTo(firstName))
+    const query = this.db.list('/products/', ref => ref.orderByChild('name').equalTo(Name)).snapshotChanges()
     
     return query;
     
