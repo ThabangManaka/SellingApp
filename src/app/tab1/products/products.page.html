@@ -6,9 +6,9 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Products List</ion-title>
+    <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
+
 </ion-header>
 
 <ion-content>
@@ -22,9 +22,11 @@
   <ion-grid>
    <ion-row>
     <ion-col>
-  <img src={{p.multiImages[0]}}>
+  <img src={{p?.multiImages[0]}}>
   </ion-col>
-  <ion-col>
 
+   </ion-row>
+   </ion-grid>
+   </ion-item>
 </ion-card>
 </ion-content>
