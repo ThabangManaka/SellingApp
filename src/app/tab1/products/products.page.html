@@ -6,12 +6,13 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Products List</ion-title>
+    <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
   </ion-toolbar>
-  <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
+
 </ion-header>
 
 <ion-content>
+<<<<<<< HEAD
  
   <ion-grid>
     <ion-row >
@@ -32,6 +33,24 @@
       {{p.price| currency: 'USD':'symbol':'1.2'}}
     </div>
   </div>
+=======
+
+
+
+
+
+<ion-card *ngFor="let p of products">
+  <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
+  <ion-grid>
+   <ion-row>
+    <ion-col>
+  <img src={{p?.multiImages[0]}}>
+  </ion-col>
+
+   </ion-row>
+   </ion-grid>
+   </ion-item>
+>>>>>>> fffbc074946e3091f17474fa858186690b250884
 </ion-card>
 </ion-col>
 </ion-row>

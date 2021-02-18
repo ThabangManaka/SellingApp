@@ -1,26 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>product-view</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/tabs/tab1/{{products?.category}}" >
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img src="{{products?.imageName}}" >
-  </ion-card>
-  <h1 >{{products?.name}}</h1>
+  <ion-card >
+    <ion-slides pager="true" >
+    <ion-slide *ngFor="let p of products?.multiImages">
+      <img src="{{p }}">
+    </ion-slide>
+    </ion-slides>
 
-  <h2>{{products?.location}}</h2>
-  <ion-item  lines="none">
-    <div class="price">
-    <h1>{{products?.price}}</h1>
+   </ion-card>
+   <div class="prodDetail">
+    <h1 >{{products?.name}}</h1>
+    <div class="location">
+
+      <h2><ion-icon name="location-outline"></ion-icon> {{products?.location}}</h2>
     </div>
-     <div class="btnCart">
-      <ion-button>Add To Cart</ion-button>
-     </div>
-  </ion-item>
+    <ion-grid>
+      <ion-row >
+        <ion-col size="6" >
+          <div class="price">
+            <h1>{{products?.price | currency:"ZAR":"symbol"}}</h1>
+            </div>
 
- 
+      </ion-col>
+      <ion-col size="6" >
+        <div class="btnCart">
+          <ion-button expand="block" shape="round">Add To Cart</ion-button>
+         </div>
+
+      </ion-col>
+      </ion-row>
+      </ion-grid>
+
+
+    </div>
+
+
+   <ion-card class="descDetail">
+     <div class="innerDetail">
+       <ul>
+         <li><p>{{products?.description}}</p></li>
+       </ul>
+
+     </div>
+
+   </ion-card>
 
 
 
