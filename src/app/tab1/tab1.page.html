@@ -4,30 +4,27 @@
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Tab 1
+      Categories
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <h2 class="ion-text-uppercase">Browser Popular Categories</h2>
-<ion-grid>
-  <ion-row >
-    <ion-col size="4"  *ngFor="let c of  categories  ">
-
-        <ion-avatar  [routerLink]="['/','tabs','tab1',c.name]"  class="image-center ion-text-center">
-        <ion-icon class=" ion-text-center" name={{c.icon}}></ion-icon>
+  <h2 class="ion-text-uppercase">Browser Popular <br/>Categories</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let c of  categories  ">
+        <ion-avatar [routerLink]="['/','tabs','tab1',c.name]" class="image-center ion-text-center">
+          <!-- <ion-icon class=" ion-text-center" name={{c.icon}}></ion-icon> -->
+          <img src="{{c.icon}}">
         </ion-avatar>
-          <div  class="txtName ion-text-center">
-            <ion-label [routerLink]="['/','tabs','tab1',c.name]" >{{c.name}}</ion-label>
-
-          </div>
-
-    </ion-col>
-
-  </ion-row>
-</ion-grid>
+        <div class="txtName ion-text-center">
+          <ion-label [routerLink]="['/','tabs','tab1',c.name]">{{c.name}}</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 
 </ion-content>
