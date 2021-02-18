@@ -13,26 +13,17 @@
 
 
       <div class="wrapform">
-        <ion-item>
+        <!-- <ion-item>
           <div>
             <div><b>Upload photo</b></div><br/>
             <input type="file" name="imageName" formControlName="imageName" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true"/>
           </div>
-        </ion-item>
+        </ion-item> -->
 
 
-        <ion-item>
-          <div>
-            <div><b>Upload photo</b></div><br/>
-            <input type="file" name="imageName" formControlName="imageName" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true"/>
-          </div>
-        </ion-item>
-        <ion-item>
-          <div>
-            <div><b>Upload photo</b></div><br/>
-            <input type="file" name="imageName" formControlName="imageName" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true"/>
-          </div>
-        </ion-item>
+     <ion-item>
+          <input type="file" (change)="onFileUpload($event) " accept=".png,.jpg" name="multiImages" multiple>
+     </ion-item>
       <!-- <ion-item>
         <ion-button expand="full" (click)="f.click()">
           <ion-icon lazy="true" slot="start" name="image"></ion-icon>
@@ -59,7 +50,7 @@
       <ion-item lines="full">
 
 
-        <ion-input type="number" name="price" formControlName="price" placeholder="Price"></ion-input>
+        <ion-input type="number" name="price" formControlName="price" inputmode="decimal" placeholder="R0.00" ></ion-input>
         <div>
           <ng-container *ngFor="let validation of  valdationUserMessage.Price">
            <div class="error_message" *ngIf="validationFormUser.get('price').hasError(validation.type) && (validationFormUser.get('price').dirty || validationFormUser.get('price').touched)">
@@ -70,7 +61,7 @@
       </ion-item>
 
       <ion-item lines="full">
-        <ion-input type="number" name="phone" formControlName="phone" placeholder="Cell Number"></ion-input>
+        <ion-input type="number" name="phone" placeholder="Phone" formControlName="phone" ></ion-input>
         <div>
           <ng-container *ngFor="let validation of  valdationUserMessage.Price">
            <div class="error_message" *ngIf="validationFormUser.get('phone').hasError(validation.type) && (validationFormUser.get('phone').dirty || validationFormUser.get('phone').touched)">
@@ -83,7 +74,7 @@
       <ion-item lines="full">
 
 
-        <ion-input type="text" name="location" formControlName="location" placeholder="Location"></ion-input>
+        <ion-input type="text" name="Address Here" formControlName="location" placeholder="Location"></ion-input>
         <div>
           <ng-container *ngFor="let validation of  valdationUserMessage.Location">
            <div class="error_message" *ngIf="validationFormUser.get('location').hasError(validation.type) && (validationFormUser.get('location').dirty || validationFormUser.get('location').touched)">
@@ -94,7 +85,6 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Category</ion-label>
         <ion-select name="category" formControlName="category"  placeholder="Select Category">
 
           <ion-select-option *ngFor="let c of categories" [value]="c.$key">{{c.name}}</ion-select-option>
@@ -108,7 +98,7 @@
         </div>
       </ion-item>
     <ion-item>
-      <ion-textarea type="text" name="description" formControlName="description"  placeholder="Description">
+      <ion-textarea type="text" name="description" formControlName="description"  placeholder="Describe What You Are Selling.">
 
       </ion-textarea>
       <div>

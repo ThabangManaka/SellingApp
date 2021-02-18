@@ -14,14 +14,14 @@
   <ion-searchbar [(ngModel)]="query" (ionChange)="searchUser(query)"></ion-searchbar>
 
 
-  
+
 
 <ion-card *ngFor="let p of products">
   <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
   <ion-grid>
    <ion-row>
     <ion-col>
-  <img src={{p.imageName}}>
+  <img src={{p.multiImages[0]}}>
   </ion-col>
   <ion-col>
 

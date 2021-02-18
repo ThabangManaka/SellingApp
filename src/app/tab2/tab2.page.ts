@@ -2,10 +2,10 @@ import { ProductService } from './../service/product.service';
 import { CategoryService } from './../service/category.service';
 import { FirebaseUploadService } from './../service/firebase-upload.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { Product } from '../IProduct';
+
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -22,6 +22,11 @@ export class Tab2Page implements OnInit {
         ],
         Price:[
           {type:"required", message:"Please enter price"},
+
+        ],
+        Phone:[
+          {type:"required", message:"Please enter Phone.No"},
+          {type:"minlength", message: "name must be at least 10 Numbers"}
 
         ],
       Location:[
@@ -42,6 +47,7 @@ export class Tab2Page implements OnInit {
     categories$;
     categories: any;
     selectedFile: any;
+    urls = [];
     constructor(private _formbuilder : FormBuilder,
       private router: Router,
       private firebaseUploadService : FirebaseUploadService,
@@ -52,7 +58,7 @@ export class Tab2Page implements OnInit {
       ) {
         this.categories$= categoryService.getCategories().subscribe(x => {
           this.categories = x
-       //   console.log(this.categories)
+     // console.log(this.categories)
          });
        }
 
@@ -63,32 +69,31 @@ export class Tab2Page implements OnInit {
       ])),
       price: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)
       ])),
-
+      phone: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)
+      ])),
       location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5)
       ])),
       category: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)
       ])),
       description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)
       ])),
-      imageName: new FormControl('', Validators.compose([ Validators.required,])),
+
+      multiImages: this._formbuilder.array([])
     })
   }
   async productForm() {
-    this.validationFormUser.value.imageName = this.imageUrl;
+
     const toast = await this.toastController.create({
       message: 'Product Uploaded Successfully...',
-
       duration: 2000,
       position: "bottom",
       animated: true,
       color: "warning",
       buttons: [
           {
-
               side: "end",
               icon: 'checkmark-circle-outline',
               role: "cancel",
-
           }
       ]
   });
@@ -101,12 +106,6 @@ export class Tab2Page implements OnInit {
     showBackdrop: true
 });
 
-// const product: Product = {
-// name : this.validationFormUser.get('name').value,
-//  price : this.validationFormUser.get('price').value,
-//   phone : this.validationFormUser.get('phone').value,
-//   //email : this.validationFormUser.get('email').value,
-//  }
     this.productService.addProduct( this.validationFormUser.value).then(res =>{
 
      toast.present().then();
@@ -120,21 +119,44 @@ export class Tab2Page implements OnInit {
     });
   }
 
-  uploadPhoto(event){
-    this.barStatus =true;
-    this.firebaseUploadService.storeImage(event.target.files[0]).then((res: any) =>{
-       if (res) {
-         this.barStatus = false;
-         this.imageUrl = res;
-         this.imagesUploads.unshift(res);
+  // uploadPhoto(event){
+  //   this.barStatus =true;
+  //   this.firebaseUploadService.storeImage(event.target.files[0]).then((res: any) =>{
+  //      if (res) {
+  //        this.barStatus = false;
+  //        this.imageUrl = res;
+  //        this.imagesUploads.unshift(res);
 
-       }
-    },
-     (error : any) => {
-      this.barStatus = true;
-     }
-    )
+  //      }
+  //   },
+  //    (error : any) => {
+  //     this.barStatus = true;
+  //    }
+  //   )
+  // }
+  createImage(img) {
+    const newImage = new FormControl(img, Validators.required);
+    (<FormArray>this.validationFormUser.get('multiImages')).push(newImage)
   }
+  get multiImages(): FormArray {
+    if (this.validationFormUser && this.validationFormUser.get('multiImages')) {
+      return this.validationFormUser.get('multiImages') as FormArray;
+    }
+  }
+  onFileUpload(event: any) {
+    this.urls = [];
+    let selectedFiles = event.target.files;
 
+    if (selectedFiles) {
+      for (let file of selectedFiles) {
+        let reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+          this.createImage(e.target.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  }
 
 }
