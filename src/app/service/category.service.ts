@@ -14,4 +14,11 @@ export class CategoryService {
   getCategories() {
     return this.db.list('/Category').valueChanges();
   }
+
+  getCategoriesLimit() {
+    return this.db.list('/Category', ref => ref.orderByChild("name").limitToFirst(9)).valueChanges();
+
+
+  }
+
 }

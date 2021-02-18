@@ -4,9 +4,12 @@
   background-color: #b31f6f;
 
 }
+ion-card{
+  --background: rgb(230, 230, 230);
+}
 ion-icon {
   margin-top: 15px;
-  text-align: center !important;;
+  text-align: center !important;
   font-size: 30px;
   color: #fff;
 }
@@ -26,4 +29,14 @@ h2 {
 ion-title{
   text-align: center;
   font-weight: bolder;
+}
+.box-out{
+  margin-top: 10px;
+  margin-bottom:-25px;
+}
+.onView{
+  float: right !important;
+}
+.newPrice{
+
 }

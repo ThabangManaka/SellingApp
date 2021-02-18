@@ -1,6 +1,8 @@
+
 import { CategoryService } from './../service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { ProductService } from '../service/product.service';
 
 
 @Component({
@@ -11,7 +13,10 @@ import { LoadingController } from '@ionic/angular';
 export class Tab1Page implements OnInit {
   categories$;
   categories: any;
+  saleProduct: any;
+
   constructor(private categoryService : CategoryService,
+    private productService: ProductService,
     private loadingController: LoadingController,) {
 
   }
@@ -26,11 +31,18 @@ export class Tab1Page implements OnInit {
       showBackdrop: true
   });
   await loader.present().then();
-  this.categories$= this.categoryService.getCategories().subscribe(x => {
+  this.categories$= this.categoryService.getCategoriesLimit().subscribe(x => {
     this.categories = x
       loader.dismiss().then();
 
    });
+
+   this.productService.saleProduct().subscribe(x => {
+
+      this.saleProduct = x
+
+   })
+
   }
   ionViewDidLoad() {
 

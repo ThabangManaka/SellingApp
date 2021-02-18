@@ -1,24 +1,29 @@
 import { ProductService } from './../../service/product.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
-import { CurrencyPipe } from '@angular/common'
+import { IonSearchbar, LoadingController } from '@ionic/angular';
+
+import { Subscription} from 'rxjs';
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
 })
-export class ProductsPage implements OnInit {
+export class ProductsPage implements OnInit, OnDestroy{
+
+  @ViewChild('search',{static: false}) search: IonSearchbar;
   id;
  products$;
- products: any;
+ products: {name: string}[];
  formatedOutputValue: any;
-
+ filteredProducts: any[];
+ subscription: Subscription;
  outputValue: string = '54781.7622000';
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private loadingController: LoadingController,
-    private cp: CurrencyPipe) { }
+) { }
 
   async ngOnInit() {
     const loader = await this.loadingController.create({
@@ -33,25 +38,33 @@ export class ProductsPage implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id)
 
-   this.productService.getProducts(this.id).subscribe(res=> {
-     console.log(res)
-    this.products = res
-    loader.dismiss().then();
-
- }),this.searchproduct,
- this.formatedOutputValue = this.cp.transform(this.outputValue, 'USD', 'symbol', '1.1');
+   this.subscription =this.productService.getProducts(this.id).subscribe(products=>this.filteredProducts = this.products =products);
   }
 
+   ionViewDidEnter() {
+     setTimeout(() => {
+       this.search.setFocus()
+     })
+   }
 
-
-  searchproduct(query) { 
-    this.productService.searchproduct(query).subscribe(searchedproducts => { 
-      this.products = searchedproducts; 
+  searchproduct(query) {
+    this.productService.searchproduct(query).subscribe(searchedproducts => {
+      this.products = searchedproducts;
 
       console.log(searchedproducts);
     })
   }
+  searchproducts(event) {
+     const val = event.target.value;
 
-  
+this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
+  }
+//   filter(query: string) {
+//  this.filteredProducts = (query) ? this.products.filter(p => p.name.toLowerCase().includes(query.toLowerCase())) : this.products;
+//   }
 
+
+  ngOnDestroy() {
+
+  }
 }
