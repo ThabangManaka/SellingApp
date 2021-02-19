@@ -28,13 +28,15 @@ img{
 }
 .name
 {
-  background-color:rgb(255, 242, 255);
+
   margin-top: 2px;
   color: black;
-  padding:10%;
+
  
-  font-size: 18px;
+  
   line-height: 1.1 ;
+
+
 }
 ion-icon
 {
@@ -43,7 +45,8 @@ ion-icon
 .price
 {
   color: purple;
-  margin-right: 40%;
+ 
+
 }
 
 
@@ -65,4 +68,15 @@ ion-icon
   }
   .form-control::placeholder  {
     font-family: FontAwesome;
+  }
+  .n1
+  {
+    font-size: 18px;
+    font-weight: bolder;
+  }
+  .loc
+  {
+    text-align:right;
+   margin-right: 55%;
+   font-size: 16px;
   }

@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-<<<<<<< HEAD
+
  
   <ion-grid>
     <ion-row >
@@ -22,35 +22,23 @@
     
   <img src={{p.imageName}}>
   <br>
-  {{p.name}} 
+  <div class="n1">
+  {{p.name}}
+</div> 
   <div class="name">
-    <ion-icon name="location-outline"></ion-icon>{{p.location}}
+    <div class="loc">
+    <ion-icon name="location-outline" class=""></ion-icon>{{p.location}}
+  </div>
     <br>
   
   
     {{p.description}}
     <div class="price">
-      {{p.price| currency: 'USD':'symbol':'1.2'}}
+      {{p.price| currency: 'USD':'symbol':'1.0-0'}}
     </div>
   </div>
-=======
 
 
-
-
-
-<ion-card *ngFor="let p of products">
-  <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
-  <ion-grid>
-   <ion-row>
-    <ion-col>
-  <img src={{p?.multiImages[0]}}>
-  </ion-col>
-
-   </ion-row>
-   </ion-grid>
-   </ion-item>
->>>>>>> fffbc074946e3091f17474fa858186690b250884
 </ion-card>
 </ion-col>
 </ion-row>

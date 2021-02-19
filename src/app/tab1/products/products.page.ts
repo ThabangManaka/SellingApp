@@ -14,7 +14,7 @@ export class ProductsPage implements OnInit {
  products: any;
  formatedOutputValue: any;
 
- outputValue: string = '54781.7622000';
+ 
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private loadingController: LoadingController,
@@ -38,8 +38,8 @@ export class ProductsPage implements OnInit {
     this.products = res
     loader.dismiss().then();
 
- }),this.searchproduct,
- this.formatedOutputValue = this.cp.transform(this.outputValue, 'USD', 'symbol', '1.1');
+ }),this.searchproduct
+
   }
 
 
