@@ -5,7 +5,7 @@
 
 }
 ion-card{
-  --background: rgb(230, 230, 230);
+  --background:  #f5f5f3;
 }
 ion-icon {
   margin-top: 15px;
@@ -32,11 +32,39 @@ ion-title{
 }
 .box-out{
   margin-top: 10px;
-  margin-bottom:-25px;
+  margin: 10px;
+  margin-bottom: -30px;
 }
 .onView{
   float: right !important;
 }
 .newPrice{
 
+}
+a {
+  text-decoration: none
+}
+ion-badge {
+  margin-right: 20px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+
+ion-icon[name="cart-outline"] {
+  color: rgba(231, 143, 78, 0.74);
+}
+
+ion-buttons[slot="end"] > ion-button.cart {
+  margin-right: 20px;
+}
+
+ion-buttons[slot="primary"] {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+
+  ion-button {
+    flex: 1;
+  }
 }

@@ -16,10 +16,10 @@ export class ProductsPage implements OnInit, OnDestroy{
   id;
  products$;
  products: {name: string}[];
- formatedOutputValue: any;
+
  filteredProducts: any[];
  subscription: Subscription;
- outputValue: string = '54781.7622000';
+
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private loadingController: LoadingController,
@@ -47,24 +47,15 @@ export class ProductsPage implements OnInit, OnDestroy{
      })
    }
 
-  searchproduct(query) {
-    this.productService.searchproduct(query).subscribe(searchedproducts => {
-      this.products = searchedproducts;
 
-      console.log(searchedproducts);
-    })
-  }
   searchproducts(event) {
      const val = event.target.value;
 
 this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
   }
-//   filter(query: string) {
-//  this.filteredProducts = (query) ? this.products.filter(p => p.name.toLowerCase().includes(query.toLowerCase())) : this.products;
-//   }
 
 
   ngOnDestroy() {
-
+    this.subscription.unsubscribe();
   }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 
 import { CategoryService } from './../service/category.service';
 import { Component, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class Tab1Page implements OnInit {
 
   constructor(private categoryService : CategoryService,
     private productService: ProductService,
-    private loadingController: LoadingController,) {
+    private loadingController: LoadingController,
+    private router : Router) {
 
   }
 
@@ -44,7 +46,5 @@ export class Tab1Page implements OnInit {
    })
 
   }
-  ionViewDidLoad() {
 
-  }
 }

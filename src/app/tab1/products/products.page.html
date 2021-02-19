@@ -6,8 +6,8 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <!-- <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"  placeholder="Search a product.."></ion-searchbar> -->
-     <ion-searchbar #search debounce="5000" (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
+
+     <ion-searchbar #search debounce="4000" (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>

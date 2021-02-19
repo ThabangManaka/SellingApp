@@ -1,9 +1,15 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
 
+      <ion-button class="cart" routerLink="/tabs/tab3">
+          <ion-icon name="cart-outline" size="large" color="light"></ion-icon>
+      </ion-button>
+  </ion-buttons>
+  <ion-badge color="light" slot="end">0</ion-badge>
   </ion-toolbar>
 </ion-header>
 
@@ -38,7 +44,7 @@
       <ion-label>ON SALE</ion-label>
 
       <div class="onView">
-        <a href="/category">VIEW ALL</a>
+        <a   routerLink="/tabs/category" >VIEW ALL</a>
       </div>
     </div>
 

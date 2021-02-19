@@ -11,7 +11,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { CurrencyPipe } from '@angular/common'
+import { CurrencyPipe } from '@angular/common';
+
 
 
 

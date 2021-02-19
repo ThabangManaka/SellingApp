@@ -1,3 +1,4 @@
+import { CartService } from './../../../service/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
@@ -14,18 +15,21 @@ export class ProductViewPage implements OnInit {
   products: any;
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
-    private loadingController: LoadingController,) { }
+    private loadingController: LoadingController,
+    private cartService : CartService) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id)
 
     this.productService.getProductById(this.id).subscribe(res=> {
-      console.log(res)
      this.products = res
      //loader.dismiss().then();
 
   })
-  }
 
+}
+addProduct(products){
+this.cartService.addToCart(products)
+}
 }
