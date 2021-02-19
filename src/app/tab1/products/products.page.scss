@@ -3,7 +3,7 @@ ion-card
 // margin:0.4cm;
 // background-color:white;
 width: 4.5cm;
-height: 6cm;
+height: 4.6cm;
 // padding: 5%;
 // font-variant: small-caps;
 }
@@ -12,7 +12,7 @@ height: 6cm;
 
 ion-content
 {
-  background-color: purple;
+  background-color: grey;
   color: black;
   font-variant: small-caps;
  
@@ -32,7 +32,7 @@ img{
   margin-top: 2px;
   color: black;
 
- 
+ background-color: rgb(226, 222, 228);
   
   line-height: 1.1 ;
 
@@ -45,7 +45,7 @@ ion-icon
 .price
 {
   color: purple;
- 
+ font-weight: bolder;
 
 }
 

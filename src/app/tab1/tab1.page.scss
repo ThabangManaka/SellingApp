@@ -4,20 +4,39 @@
   background-color: #b31f6f;
 
 }
+ion-card{
+  --background: rgb(230, 230, 230);
+}
 ion-icon {
   margin-top: 15px;
-  text-align: center !important;;
+  text-align: center !important;
   font-size: 30px;
   color: #fff;
 }
 h2 {
   margin-top: 30px;
-
   text-align: center;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-weight: bolder;
+  font-size: 14px;
+  margin-bottom: 15px;
+
 
 }
 .txtName{
   padding-top: 15px !important;
+  font-size: 12px;
+}
+ion-title{
+  text-align: center;
+  font-weight: bolder;
+}
+.box-out{
+  margin-top: 10px;
+  margin-bottom:-25px;
+}
+.onView{
+  float: right !important;
+}
+.newPrice{
+
 }

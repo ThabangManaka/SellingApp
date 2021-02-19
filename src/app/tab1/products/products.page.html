@@ -6,7 +6,8 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-searchbar [(ngModel)]="query" (ionChange)="searchproduct(query)"></ion-searchbar>
+
+     <ion-searchbar #search debounce="5000" (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
@@ -16,29 +17,31 @@
  
   <ion-grid>
     <ion-row >
-      <ion-col size="6"  rowHeight="8px"  *ngFor="let p of products">
+      <ion-col size="6"  rowHeight="8px"  *ngFor="let p of filteredProducts ">
 <ion-card >
-  <!-- <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail> -->
-    
-  <img src={{p.imageName}}>
-  <br>
+<ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
+
+  <img src={{p?.multiImages[0]}}>
+ 
   <div class="n1">
-  {{p.name}}
-</div> 
-  <div class="name">
+    {{p.name}}
+  </div>
+    <div class="name">
+ 
+
     <div class="loc">
     <ion-icon name="location-outline" class=""></ion-icon>{{p.location}}
   </div>
-    <br>
-  
-  
-    {{p.description}}
+  {{p.description}}
+
     <div class="price">
+  
       {{p.price| currency: 'USD':'symbol':'1.0-0'}}
     </div>
   </div>
 
 
+  </ion-item>
 </ion-card>
 </ion-col>
 </ion-row>
