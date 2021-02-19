@@ -3,7 +3,7 @@ ion-card
 // margin:0.4cm;
 // background-color:white;
 width: 4.5cm;
-height: 6cm;
+height: 4.6cm;
 // padding: 5%;
 // font-variant: small-caps;
 }
@@ -12,7 +12,7 @@ height: 6cm;
 
 ion-content
 {
-  background-color: purple;
+  background-color: grey;
   color: black;
   font-variant: small-caps;
  
@@ -28,13 +28,15 @@ img{
 }
 .name
 {
-  background-color:rgb(255, 242, 255);
+
   margin-top: 2px;
   color: black;
-  padding:10%;
- 
-  font-size: 18px;
+
+ background-color: rgb(226, 222, 228);
+  
   line-height: 1.1 ;
+
+
 }
 ion-icon
 {
@@ -43,7 +45,8 @@ ion-icon
 .price
 {
   color: purple;
-  margin-right: 40%;
+ font-weight: bolder;
+
 }
 
 
@@ -65,4 +68,15 @@ ion-icon
   }
   .form-control::placeholder  {
     font-family: FontAwesome;
+  }
+  .n1
+  {
+    font-size: 18px;
+    font-weight: bolder;
+  }
+  .loc
+  {
+    text-align:right;
+   margin-right: 55%;
+   font-size: 16px;
   }

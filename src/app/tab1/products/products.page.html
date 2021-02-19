@@ -14,6 +14,7 @@
 
 <ion-content>
 
+
   <ion-grid>
     <ion-row >
       <ion-col size="6"  rowHeight="8px"  *ngFor="let p of filteredProducts ">
@@ -21,18 +22,25 @@
 <ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
 
   <img src={{p?.multiImages[0]}}>
-  <br>
-  {{p.name}}
-  <div class="name">
-    <ion-icon name="location-outline"></ion-icon>{{p.location}}
-    <br>
+
+  <div class="n1">
+    {{p.name}}
+  </div>
+    <div class="name">
 
 
-    {{p.description}}
+    <div class="loc">
+    <ion-icon name="location-outline" class=""></ion-icon>{{p.location}}
+  </div>
+  {{p.description}}
+
     <div class="price">
-      {{p.price| currency: 'USD':'symbol':'1.2'}}
+
+      {{p.price| currency: 'USD':'symbol':'1.0-0'}}
     </div>
   </div>
+
+
   </ion-item>
 </ion-card>
 </ion-col>

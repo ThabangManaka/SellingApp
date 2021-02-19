@@ -52,7 +52,8 @@ export class ProductService {
     //  {
 
     return this.db.list('/products', ref => ref.orderByChild("name")
-    .equalTo(Name.toLowerCase())).snapshotChanges()
+    .equalTo(Name.toLowerCase())||(ref.orderByChild("location")
+    .equalTo(Name.toLowerCase()))).snapshotChanges()
     .pipe(map(actions => actions.map(a => {
 
      const key = a.payload.key;
