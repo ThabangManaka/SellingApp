@@ -1,3 +1,4 @@
+import { Product } from './../../../IProduct';
 import { CartService } from './../../../service/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -29,7 +30,9 @@ export class ProductViewPage implements OnInit {
   })
 
 }
-addProduct(products){
+addProduct(products: Product){
+      products.id = this.id
+
 this.cartService.addToCart(products)
 }
 }

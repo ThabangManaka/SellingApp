@@ -1,5 +1,7 @@
 {
   "name": "sellingApp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

@@ -19,7 +19,7 @@
     <ion-row >
       <ion-col size="6"  rowHeight="8px"  *ngFor="let p of filteredProducts ">
 <ion-card >
-<ion-item [routerLink]="['/','tabs','tab1',p.category,p.key]"  detail>
+<ion-item   detail>
 
   <img src={{p?.multiImages[0]}}>
 

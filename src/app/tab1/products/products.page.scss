@@ -1,12 +1,3 @@
-ion-card
-{
-// margin:0.4cm;
-// background-color:white;
-width: 4.5cm;
-height: 4.6cm;
-// padding: 5%;
-// font-variant: small-caps;
-}
 
 
 
@@ -15,7 +6,7 @@ ion-content
   background-color: grey;
   color: black;
   font-variant: small-caps;
- 
+
 }
 img{
   height: 2cm;
@@ -23,7 +14,7 @@ img{
   margin-top: 0.1cm;
 
   display: block;
- 
+
   width: 50%;
 }
 .name
@@ -33,7 +24,7 @@ img{
   color: black;
 
  background-color: rgb(226, 222, 228);
-  
+
   line-height: 1.1 ;
 
 
@@ -56,13 +47,13 @@ ion-icon
     padding-bottom: 10px;
     color: #405065;
   }
-  
+
   .search-hero {
     max-width: 500px;
     padding-bottom: 50px;
     margin:auto;
   }
-  
+
   .form-control {
     box-shadow: 0 10px 40px 0 #B0C1D9;
   }
