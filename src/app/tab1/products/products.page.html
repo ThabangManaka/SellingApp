@@ -7,7 +7,7 @@
       </ion-button>
     </ion-buttons>
 
-     <ion-searchbar #search debounce="4000" (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
+     <ion-searchbar #search  (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
@@ -16,7 +16,7 @@
   <ion-row class="sell-Items">
     <ion-col size="6" *ngFor="let p of products" class="ion-text-left">
         <!-- <ion-card mode="ios" *ngFor="let p of products"> -->
-              <img src={{p.imageName}}>
+              <img src={{p.imageName[0]}}>
               <ion-label>{{p.name}}</ion-label>
               <p color="dark">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
               <p><ion-icon name="location-outline"></ion-icon><b>{{p.location}}</b></p>

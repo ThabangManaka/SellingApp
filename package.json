@@ -24,6 +24,7 @@
     "@capacitor/core": "2.4.6",
     "@ionic/angular": "^5.5.2",
     "firebase": "^7.0 || ^8.0",
+    "ionic5-star-rating": "https://github.com/JeongJun-Lee/ionic5-star-rating/tarball/master",
     "mongodb": "^2.2.33",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

@@ -1,0 +1,43 @@
+
+
+<ion-content>
+
+  <h2 class="ion-text-uppercase">Please rate our App</h2>
+  <form [formGroup]="validationFormUser" (ngSubmit)="productForm(validationFormUser.value)">
+
+  <ion-card>
+  <ion-item>
+    <ionic5star-rating #rating
+    activeIcon = "ios-star"
+    defaultIcon = "ios-star-outline"
+    activeColor = "#d1301a"
+    defaultColor = "#aaaaaa"
+    readonly = "false"
+    fontSize = "32px"
+    (ratingChanged)="logRatingChange($event)"
+    formControlName="starRating">
+</ionic5star-rating>
+  </ion-item>
+
+    <ion-item>
+      <ion-textarea type="text" name="ratingDesc" formControlName="ratingDesc"  placeholder="Please give you're experience with the app">
+      </ion-textarea>
+
+    </ion-item>
+    <ion-item lines="none">
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.RatingDesc">
+         <div class="error_message" *ngIf="validationFormUser.get('ratingDesc').hasError(validation.type) && (validationFormUser.get('ratingDesc').dirty || validationFormUser.get('ratingDesc').touched)">
+          {{validation.message}}
+         </div>
+        </ng-container>
+      </div>
+    </ion-item>
+    <div class="sign-btn-wrap">
+      <ion-button type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Submit</ion-button>
+     </div>
+
+  </ion-card>
+
+  </form>
+</ion-content>

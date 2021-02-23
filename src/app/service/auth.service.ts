@@ -11,7 +11,11 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
-    private router : Router) { }
+    private router : Router) {
+      this.afAuth.authState.subscribe(user => {
+        console.log(user.uid)
+      })
+    }
 
 
     async login(login : Login) {

@@ -23,6 +23,14 @@ const routes: Routes = [
         path: 'category',
         loadChildren: () => import('../category/category.module').then( m => m.CategoryPageModule)
       },
+      {
+        path: 'ratings',
+        loadChildren: () => import('../ratings/ratings.module').then( m => m.RatingsPageModule)
+      },
+      {
+        path: 'comment',
+        loadChildren: () => import('../comment/comment.module').then( m => m.CommentPageModule)
+      },
 
       {
         path: '',

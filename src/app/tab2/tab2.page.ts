@@ -2,7 +2,7 @@ import { ProductService } from './../service/product.service';
 import { CategoryService } from './../service/category.service';
 import { FirebaseUploadService } from './../service/firebase-upload.service';
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
 

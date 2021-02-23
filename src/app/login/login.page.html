@@ -12,9 +12,9 @@
     <h2>Login to <br />Application</h2>
     <img src="../../assets/free_logos_dribbble_ph.jpg" />
   </div>
-  
+
   <form id="form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
-    
+
     <ion-item transparent>
       <ion-icon name="mail-outline" slot="start"></ion-icon>
       <ion-input type="text" name="email" formControlName="email" placeholder="Email"></ion-input>
@@ -33,13 +33,13 @@
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Password">
           <div class="error_message"
-            *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+            *ngIf="(validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
             {{validation.message}}
           </div>
         </ng-container>
       </div>
     </ion-item>
-    
+
     <ion-label class="forgot-password" routerLink="/forgot-password">Forgot password?</ion-label>
     <div linespace></div>
 
@@ -50,5 +50,5 @@
 
       </ion-label>
   </form>
-  
+
 </ion-content>
