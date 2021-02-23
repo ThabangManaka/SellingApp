@@ -4,6 +4,7 @@ import { CategoryService } from './service/category.service';
 import { LoadingController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
