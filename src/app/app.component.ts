@@ -45,8 +45,6 @@ export class AppComponent implements OnInit {
   menuItemForce(): void {
     this.showForce = !this.showForce;
   }
-  getUser() {
 
-  }
 
 }

@@ -56,13 +56,13 @@ export class CommentPage implements OnInit {
         }
     ]
 });
-//this.validationFormUser.value.firstname = this.userDetail.firstname;
+
 this.ratingsService.addRating(this.validationFormUser.value);
   }
 
 
   logRatingChange(rating){
     console.log("changed rating: ",rating);
-    // do your stuff
+
 }
 }

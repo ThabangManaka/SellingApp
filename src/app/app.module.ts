@@ -25,7 +25,7 @@ import { SecureStorageService } from './service/secure-storage.service';
   entryComponents: [],
   imports: [BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    StarRatingModule,
+    // StarRatingModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, AngularFireStorageModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
