@@ -3,6 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Rating } from '../model/IRating';
+
 @Injectable({
   providedIn: 'root'
 })

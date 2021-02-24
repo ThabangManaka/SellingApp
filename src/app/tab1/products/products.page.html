@@ -15,13 +15,15 @@
 <ion-content>
   <ion-row class="sell-Items">
     <ion-col size="6" *ngFor="let p of products" class="ion-text-left">
-        <!-- <ion-card mode="ios" *ngFor="let p of products"> -->
-              <img src={{p.imageName[0]}}>
-              <ion-label>{{p.name}}</ion-label>
-              <p color="dark">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
-              <p><ion-icon name="location-outline"></ion-icon><b>{{p.location}}</b></p>
+        <ion-card class="ion-no-margin">
 
-              <ion-label class="view" [routerLink]="['/','tabs','tab1',p.category,p.key]">View</ion-label>
-    </ion-col>
+              <img src={{p.multiImages[0]}}>
+            <p class="parName">{{p.name}}</p>
+              <p color="dark">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
+
+
+              <ion-label class="view" [routerLink]="['/','tabs','tab1',p.category,p.key]">VIEW</ion-label>
+            </ion-card>
+            </ion-col>
   </ion-row>
 </ion-content>

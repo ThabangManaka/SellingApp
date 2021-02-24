@@ -1,3 +1,4 @@
+
 import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CurrencyPipe } from '@angular/common';
 import { StarRatingModule } from  'ionic5-star-rating';
-
+import { SecureStorageService } from './service/secure-storage.service';
 
 
 
@@ -27,7 +28,9 @@ import { StarRatingModule } from  'ionic5-star-rating';
     StarRatingModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, AngularFireStorageModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },CurrencyPipe],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    SecureStorageService,CurrencyPipe],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

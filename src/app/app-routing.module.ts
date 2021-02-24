@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './AuthGuard/auth.guard';
 
 const routes: Routes = [
   //PLEASE DON"T CHANGE ANYTHING HERE
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'tabs/tab1',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -19,7 +27,11 @@ const routes: Routes = [
     path: 'forgot-password',
     loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
   },
-
+  {
+    path: '',
+    redirectTo: 'tabs',
+    pathMatch: 'full'
+  },
 
   // {
   //   path: 'category',

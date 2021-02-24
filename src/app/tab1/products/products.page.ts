@@ -52,15 +52,11 @@ export class ProductsPage implements OnInit, OnDestroy{
        this.search.setFocus()
      })
    }
-
-
   searchproducts(event) {
-     const val = event.target.value;
-
-this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
+   const val = event.target.value;
+   console.log(val)
+    this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
   }
-
-
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

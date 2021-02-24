@@ -25,18 +25,18 @@ export class LoginPage implements OnInit {
 
     ngOnInit() {
       this.validationFormUser = this._formbuilder.group({
-        email: new FormControl('', Validators.compose([
+        email: new FormControl('thaba@gmail.com', Validators.compose([
           Validators.required,
           Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
         ])),
-        password: new FormControl('', Validators.compose([
+        password: new FormControl('Thabang', Validators.compose([
           Validators.required,
           Validators.minLength(5)
         ])),
       })
     }
     loginUser(form){
-      console.log(this.validationFormUser.value)
+
        this.authService.login(this.validationFormUser.value);
 
     }

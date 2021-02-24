@@ -14,7 +14,7 @@ ion-toolbar {
 
 ion-content {
     --background: #f5f5f3;
-    
+
   #header {
     display: flex;
     flex-direction: column;
@@ -41,18 +41,18 @@ ion-content {
     padding-left: 30px;
     padding-right: 30px;
 
-    ion-button {
-    color:rgb(227, 234, 236);
-    margin-top: 15px;
-    height: 30px;
-    font-size: 18px;
-    text-transform: initial;
-     border-radius: 50px;
-    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
-    --box-shadow: none;
-     padding-left: 10px;
-    padding-right: 10px;
-    }
+    // ion-button {
+    // color:rgb(227, 234, 236);
+    // margin-top: 15px;
+    // height: 30px;
+    // font-size: 18px;
+    // text-transform: initial;
+    //  border-radius: 50px;
+    // box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+    // --box-shadow: none;
+    //  padding-left: 10px;
+    // padding-right: 10px;
+    // }
   }
 
 }

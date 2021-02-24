@@ -28,7 +28,6 @@ export class ProductService {
  .pipe(map(actions => actions.map(a => {
 
   const key = a.payload.key;
- // const data = a.payload.val();
   let obj:any = a.payload.val()
 
   return {key, ...obj};
@@ -42,14 +41,7 @@ export class ProductService {
 
   }
 
-
-
   searchproduct(Name) {
-
-    // let val;
-    // val=Name
-    // if (val.trim() !== '')
-    //  {
 
     return this.db.list('/products', ref => ref.orderByChild("name")
     .equalTo(Name.toLowerCase())||(ref.orderByChild("location")

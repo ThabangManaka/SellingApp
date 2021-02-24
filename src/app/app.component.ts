@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from './service/category.service';
 import { LoadingController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { AngularFireAuth } from  "@angular/fire/auth";
+import { SecureStorageService } from './service/secure-storage.service';
 
 
 @Component({
@@ -15,23 +17,25 @@ export class AppComponent implements OnInit {
   categories: any;
   showForce: boolean;
 
-  constructor(private authService: AuthService, private categoryService: CategoryService,
-    private loadingController: LoadingController) { }
+  userDetail: any;
+  constructor(public authService: AuthService,private afAuth: AngularFireAuth,
+     private categoryService: CategoryService,
+    private loadingController: LoadingController,
+    private secureStorageService : SecureStorageService) {
+    //   this.afAuth.authState.subscribe(user => {
+    //     if (user) {
+    //  this.user = user;
+
+
+    //  this.authService.getbyUserId(user.uid).subscribe(res => {
+    //      this.userDetail =  res;
+    //  })
+    //     }
+    //   })
+     }
 
   async ngOnInit() {
-    const loader = await this.loadingController.create({
-      message: 'Please Wait..',
-      animated: true,
-      spinner: "circles",
-      backdropDismiss: false,
-      showBackdrop: true
-    });
-    await loader.present().then();
-    this.categories$ = this.categoryService.getCategories().subscribe(x => {
-      this.categories = x
-      loader.dismiss().then();
 
-    });
   }
 
   onLogout() {
@@ -41,4 +45,8 @@ export class AppComponent implements OnInit {
   menuItemForce(): void {
     this.showForce = !this.showForce;
   }
+  getUser() {
+
+  }
+
 }

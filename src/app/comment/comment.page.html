@@ -3,20 +3,17 @@
 <ion-content>
 
   <h2 class="ion-text-uppercase">Please rate our App</h2>
-  <form [formGroup]="validationFormUser" (ngSubmit)="productForm(validationFormUser.value)">
+  <form [formGroup]="validationFormUser" (ngSubmit)="ratingForm(validationFormUser.value)">
 
   <ion-card>
   <ion-item>
-    <ionic5star-rating #rating
-    activeIcon = "ios-star"
-    defaultIcon = "ios-star-outline"
-    activeColor = "#d1301a"
+    <ionic5-star-rating #rating
+    activeColor ="#ffb400"
     defaultColor = "#aaaaaa"
     readonly = "false"
-    fontSize = "32px"
     (ratingChanged)="logRatingChange($event)"
     formControlName="starRating">
-</ionic5star-rating>
+</ionic5-star-rating>
   </ion-item>
 
     <ion-item>
