@@ -21,8 +21,7 @@ export class ProductsPage implements OnInit, OnDestroy{
 
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
-    private loadingController: LoadingController,
-) { }
+    private loadingController: LoadingController) { }
 
   async ngOnInit() {
     const loader = await this.loadingController.create({

@@ -2,9 +2,11 @@ import { RatingsService } from './../service/ratings.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl,FormGroup,Validators } from '@angular/forms';
 import { LoadingController, ToastController } from '@ionic/angular';
-import { AngularFireAuth } from  "@angular/fire/auth";
+
 
 import { AuthService } from '../service/auth.service';
+import { SecureStorageService } from '../service/secure-storage.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.page.html',
@@ -23,15 +25,18 @@ export class CommentPage implements OnInit {
   userDetail: any;
   validationFormUser: FormGroup;
   constructor(private _formbuilder : FormBuilder,
-    private loadingController: LoadingController,
       private toastController: ToastController,
-      public authService: AuthService,
+      private router: Router,
       private ratingsService : RatingsService,
-      private afAuth: AngularFireAuth) {
+      private secureStorageService : SecureStorageService) {
 
       }
 
   ngOnInit() {
+    this.secureStorageService.get('user').then(res => {
+         this.userDetail =res
+         console.log(this.userDetail)
+       })
 
     this.validationFormUser = this._formbuilder.group({
 
@@ -39,25 +44,22 @@ export class CommentPage implements OnInit {
       ])),
       starRating:[3],
       date: new Date(),
-
+      firstname: ''
     })
   }
  async ratingForm(form) {
   const toast = await this.toastController.create({
     message: 'Thank You For The Feedback...',
-    duration: 2000,
+    duration: 3000,
     position: "bottom",
     animated: true,
-    buttons: [
-        {
-            side: "end",
-            icon: 'checkmark-circle-outline',
-            role: "cancel",
-        }
-    ]
-});
 
-this.ratingsService.addRating(this.validationFormUser.value);
+});
+  this.validationFormUser.value.firstname= this.userDetail.firstname
+this.ratingsService.addRating(this.validationFormUser.value).then(res => {
+  toast.present().then();
+  this.router.navigateByUrl('/tabs/tab1');
+});
   }
 
 

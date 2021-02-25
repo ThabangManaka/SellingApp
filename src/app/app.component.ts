@@ -13,28 +13,20 @@ import { SecureStorageService } from './service/secure-storage.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  categories$;
-  categories: any;
+
   showForce: boolean;
 
   userDetail: any;
-  constructor(public authService: AuthService,private afAuth: AngularFireAuth,
-     private categoryService: CategoryService,
-    private loadingController: LoadingController,
+  constructor(public authService: AuthService,
     private secureStorageService : SecureStorageService) {
-    //   this.afAuth.authState.subscribe(user => {
-    //     if (user) {
-    //  this.user = user;
 
-
-    //  this.authService.getbyUserId(user.uid).subscribe(res => {
-    //      this.userDetail =  res;
-    //  })
-    //     }
-    //   })
      }
 
   async ngOnInit() {
+  //  this.secureStorageService.get('user').then(res => {
+  //   this.userDetail =res
+  //   console.log(this.userDetail)
+  //  })
 
   }
 
@@ -45,6 +37,8 @@ export class AppComponent implements OnInit {
   menuItemForce(): void {
     this.showForce = !this.showForce;
   }
+
+
 
 
 }
