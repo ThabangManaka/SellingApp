@@ -1,64 +1,96 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="primary" routerLink="/tabs/tab1/{{products?.category}}" >
+      <ion-button color="primary" routerLink="/tabs/tab1/{{products?.category}}">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card >
-    <ion-slides pager="true" >
-    <ion-slide *ngFor="let p of products?.multiImages">
-      <img src="{{p }}">
-    </ion-slide>
+<ion-content fullscreen>
+  <ion-card>
+    <ion-slides pager="true" class="product-slider">
+      <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
+        <img src="{{p }}">
+      </ion-slide>
     </ion-slides>
+    <ion-card-header>
+      <ion-card-title>{{products?.name}}</ion-card-title>
+      <ion-card-subtitle color="secondary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
 
-   </ion-card>
-   <div class="prodDetail">
-    <h1 >{{products?.name}}</h1>
-    <div class="location">
-
-      <h2><ion-icon name="location-outline"></ion-icon> {{products?.location}}</h2>
+  <ion-card class="descDetail">
+    <div class="innerDetail">
+      <h3 class="ion-text-left"><b>Description</b></h3>
+      <ul>
+        <li>
+          <p>{{products?.description}}</p>
+        </li>
+      </ul>
     </div>
-    <div class="location">
+  </ion-card>
 
-      <h2><ion-icon name="call-outline"></ion-icon> {{products?.phone}}</h2>
+  <ion-card class="location">
+    <div class="location-details">
+      <h3 class="ion-text-left"><b>Location</b></h3>
+      <p>
+        <ion-icon name="location-outline" color="secondary"></ion-icon><b> {{products?.location}}</b>
+      </p>
     </div>
+  </ion-card>
 
-    <ion-grid>
-      <ion-row >
 
-        <ion-col size="6" >
-          <div class="price">
-            <h1>{{products?.price | currency:"ZAR":"symbol"}}</h1>
-            </div>
+   <ion-card>
+     <ion-grid>
+       <ion-row>
+         <ion-col>
+          <h3 >Phone Number</h3>
+          <P>{{products?.phone}}</P>
+         </ion-col>
+         <ion-col>
+           <p></p>
+          <ion-button shape="block" fill="solid" href="{{url}}" color="success">
+            <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
+        </ion-col>
+       </ion-row>
+     </ion-grid>
+
+
+  </ion-card>
+  <ion-card>
+    <ion-row>
+      <ion-col>
+        <ion-button  shape="block" fill="solid" (click)="sendSms(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
       </ion-col>
-      <ion-col size="6" >
-        <div class="btnCart">
-          <ion-button expand="block" shape="round" (click)="launchDialer('{{products?.phone}}')">Add To Cart</ion-button>
-         </div>
-
+      <ion-col>
+        <ion-button  shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
       </ion-col>
-      </ion-row>
-      </ion-grid>
+
+    </ion-row>
+  </ion-card>
 
 
+  <ion-card class="user-details">
+    <div class="user">
+      <h3 class="ion-text-left"><b>Seller description</b></h3>
+      <h4>{{products?.sellerFirstName}} {{products?.sellerLastName}}
+        <div class="separator">
+          <hr>
+        </div>
+      </h4>
+
+
+          <div class="email">
+            <ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}
+          </div>
+          <div class="contact">
+            <ion-icon name="call-outline" color="primary"></ion-icon> {{products?.phone}}
+          </div>
     </div>
+  </ion-card>
 
-
-   <ion-card class="descDetail">
-     <div class="innerDetail">
-       <ul>
-         <li><p>{{products?.description}}</p></li>
-       </ul>
-
-     </div>
-
-   </ion-card>
 
 
 
