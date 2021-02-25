@@ -15,8 +15,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CurrencyPipe } from '@angular/common';
 import { StarRatingModule } from  'ionic5-star-rating';
 import { SecureStorageService } from './service/secure-storage.service';
-
-
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
 
 
 
@@ -25,10 +26,10 @@ import { SecureStorageService } from './service/secure-storage.service';
   entryComponents: [],
   imports: [BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    // StarRatingModule,
+   StarRatingModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, AngularFireStorageModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  providers: [ImagePicker,CallNumber,SMS,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SecureStorageService,CurrencyPipe],
 
   bootstrap: [AppComponent],

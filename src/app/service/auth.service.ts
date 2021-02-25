@@ -30,7 +30,8 @@ export class AuthService {
 
     async login(login : Login) {
       var result = await this.afAuth.signInWithEmailAndPassword(login.email,login.password).then(res =>{
-        console.log(res);
+        console.log(res.user);
+
         this.router.navigateByUrl('tabs/tab1');
 
       }).catch(res => {
@@ -77,7 +78,8 @@ export class AuthService {
 
 
    get currentUser(): any {
-    return (this.afAuth.authState !== null) ? this.afAuth.authState : null;
+    const user =  this.secureStorageService.get('user');
+    return  user;
   }
 
 

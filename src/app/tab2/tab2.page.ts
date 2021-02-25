@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController, ToastController } from '@ionic/angular';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { SecureStorageService } from '../service/secure-storage.service';
 
 @Component({
   selector: 'app-tab2',
@@ -46,42 +48,46 @@ export class Tab2Page implements OnInit {
     validationFormUser: FormGroup;
     categories$;
     categories: any;
-    selectedFile: any;
-    urls = [];
+
+    imageResponse: any;
+    options: any;
+    userDetail: any;
+
     constructor(private _formbuilder : FormBuilder,
       private router: Router,
-      private firebaseUploadService : FirebaseUploadService,
       private categoryService : CategoryService,
       private productService : ProductService,
       private loadingController: LoadingController,
-      private toastController: ToastController
+      private toastController: ToastController,
+      private imagePicker: ImagePicker,
+      private secureStorageService : SecureStorageService
       ) {
         this.categories$= categoryService.getCategories().subscribe(x => {
           this.categories = x
-     // console.log(this.categories)
-         });
-       }
+       });
+     }
 
   ngOnInit() {
-    this.validationFormUser = this._formbuilder.group({
+     this.secureStorageService.get('user').then(res => {
+    this.userDetail =res
 
-      name: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(3)
-      ])),
-      price: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)
-      ])),
-      phone: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)
-      ])),
-      location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5)
-      ])),
-      category: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)
-      ])),
-      description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)
-      ])),
+  })
+ this.validationFormUser = this._formbuilder.group({
+ name: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(3)])),
+ price: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)   ])),
+ phone: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2) ])),
+ location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5) ])),
+ category: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)])),
+ description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)])),
+  multiImages: this._formbuilder.array([]),
+   sellerEmail: '',
+   sellerFirstName:'',
+   sellerLastName:'',
+     date: new Date(),
 
-      multiImages: this._formbuilder.array([])
     })
   }
-  async productForm() {
+  async productForm(form) {
 
     const toast = await this.toastController.create({
       message: 'Product Uploaded Successfully...',
@@ -97,6 +103,7 @@ export class Tab2Page implements OnInit {
           }
       ]
   });
+
   const loader = await this.loadingController.create({
     message: 'Please Wait..',
     animated: true,
@@ -105,6 +112,9 @@ export class Tab2Page implements OnInit {
     backdropDismiss: false,
     showBackdrop: true
 });
+  this.validationFormUser.value.sellerEmail  =   this.userDetail.email;
+  this.validationFormUser.value.sellerFirstName =   this.userDetail.firstname;
+  this.validationFormUser.value.sellerLastName =  this.userDetail.lastname;
 
     this.productService.addProduct( this.validationFormUser.value).then(res =>{
 
@@ -119,44 +129,34 @@ export class Tab2Page implements OnInit {
     });
   }
 
-  // uploadPhoto(event){
-  //   this.barStatus =true;
-  //   this.firebaseUploadService.storeImage(event.target.files[0]).then((res: any) =>{
-  //      if (res) {
-  //        this.barStatus = false;
-  //        this.imageUrl = res;
-  //        this.imagesUploads.unshift(res);
 
-  //      }
-  //   },
-  //    (error : any) => {
-  //     this.barStatus = true;
-  //    }
-  //   )
-  // }
   createImage(img) {
     const newImage = new FormControl(img, Validators.required);
     (<FormArray>this.validationFormUser.get('multiImages')).push(newImage)
   }
+
   get multiImages(): FormArray {
     if (this.validationFormUser && this.validationFormUser.get('multiImages')) {
       return this.validationFormUser.get('multiImages') as FormArray;
     }
   }
-  onFileUpload(event: any) {
-    this.urls = [];
-    let selectedFiles = event.target.files;
 
-    if (selectedFiles) {
-      for (let file of selectedFiles) {
-        let reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.urls.push(e.target.result);
-          this.createImage(e.target.result);
-        }
-        reader.readAsDataURL(file);
+  getImages() {
+    this.options = {
+     width: 200,
+     quality: 25,
+     outputType: 1
+    };
+    this.imageResponse = [];
+    this.imagePicker.getPictures(this.options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        this.imageResponse.push('data:image/jpeg;base64,' + results[i]);
+        this.createImage('data:image/jpeg;base64,' + results[i])
       }
-    }
+    }, (err) => {
+      alert(err);
+    });
   }
+
 
 }

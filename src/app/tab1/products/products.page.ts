@@ -1,3 +1,4 @@
+import { Product } from './../../IProduct';
 import { ProductService } from './../../service/product.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -15,13 +16,12 @@ export class ProductsPage implements OnInit, OnDestroy{
   @ViewChild('search',{static: false}) search: IonSearchbar;
   id;
  products$;
- products: {name: string}[];
+ products: Product[];
  filteredProducts: any[];
  subscription: Subscription;
 
   constructor(private productService: ProductService,
-    private route: ActivatedRoute,
-    private loadingController: LoadingController) { }
+    private route: ActivatedRoute,private loadingController: LoadingController) { }
 
   async ngOnInit() {
     const loader = await this.loadingController.create({
@@ -55,6 +55,10 @@ export class ProductsPage implements OnInit, OnDestroy{
    const val = event.target.value;
    console.log(val)
     this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
+  }
+
+  searchproduct(event) {
+
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

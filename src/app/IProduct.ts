@@ -1,5 +1,5 @@
 export interface Product {
-  id?:string;
+ key?:string;
 name: string;
  price: number;
  phone: number;
@@ -8,5 +8,8 @@ category: string;
 description: string;
 imageName: string;
 multiImages: any[];
-
+sellerEmail: string;
+sellerFirstName: string;
+sellerLastName: string;
+date: Date
 }

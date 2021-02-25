@@ -13,31 +13,25 @@
 
 
       <div class="wrapform">
-        <!-- <ion-item>
-          <div>
-            <div><b>Upload photo</b></div><br/>
-            <input type="file" name="imageName" formControlName="imageName" (change)="uploadPhoto($event)" accept=".png,.jpg" multiple="true"/>
-          </div>
-        </ion-item> -->
+        <ion-grid>
+          <ion-row>
+            <ion-col text-center>
+              <ion-button (click)="getImages()">Choose Images</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <div class="images">
+                <div class="one-image" *ngFor="let img of imageResponse">
+                  <img src="{{img}}" alt="" srcset="">
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          </ion-grid>
 
-
-     <ion-item>
-          <input type="file" (change)="onFileUpload($event) " accept=".png,.jpg" name="multiImages" multiple>
-     </ion-item>
-      <!-- <ion-item>
-        <ion-button expand="full" (click)="f.click()">
-          <ion-icon lazy="true" slot="start" name="image"></ion-icon>
-          <ion-label slot="end">Upload Photo 2</ion-label>
-        </ion-button>
-          <input class="ion-hide" name="imageName" formControlName="imageName" #f type="file" (change)="loadImageFromDevice($event)" id="file-input"
-          accept=".png,.jpg">
-
-     </ion-item>
-    -->
 
       <ion-item lines="full">
-
-
         <ion-input type="text" name="name" formControlName="name" placeholder="Product Name"></ion-input>
         <div>
           <ng-container *ngFor="let validation of  valdationUserMessage.Name">

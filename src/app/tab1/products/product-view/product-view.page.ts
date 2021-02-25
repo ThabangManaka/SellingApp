@@ -1,10 +1,9 @@
-import { Product } from './../../../IProduct';
 import { CartService } from './../../../service/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
 import { ProductService } from 'src/app/service/product.service';
-
+import { CallNumber } from '@ionic-native/call-number/ngx';
+import { SMS } from '@ionic-native/sms/ngx';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.page.html',
@@ -16,8 +15,8 @@ export class ProductViewPage implements OnInit {
   products: any;
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
-    private loadingController: LoadingController,
-    private cartService : CartService) { }
+    private callNumber: CallNumber,
+    private sms: SMS) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -25,14 +24,25 @@ export class ProductViewPage implements OnInit {
 
     this.productService.getProductById(this.id).subscribe(res=> {
      this.products = res
-     //loader.dismiss().then();
-
   })
-
 }
-addProduct(products: Product){
-      products.id = this.id
 
-this.cartService.addToCart(products)
+launchDialer(n:any){
+  this.callNumber.callNumber(n, true)
+  .then(() => console.log('Launched dialer!'))
+  .catch(() => console.log('Error launching dialer'));
+}
+
+sendSms() {
+  let options = {
+    replaceLineBreaks: false, // true to replace \n by a new line, false by default
+    android: {
+        intent: ''  // send SMS with the native android SMS messaging
+
+    }
+};
+  this.sms.send(this.products.phone, 'SMS Works', options).then(val => {
+    alert('It works');
+  });
 }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { StarRatingModule } from 'ionic5-star-rating';
 import { RatingsPageRoutingModule } from './ratings-routing.module';
 
 import { RatingsPage } from './ratings.page';
@@ -13,6 +13,7 @@ import { RatingsPage } from './ratings.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    StarRatingModule,
     RatingsPageRoutingModule
   ],
   declarations: [RatingsPage]
