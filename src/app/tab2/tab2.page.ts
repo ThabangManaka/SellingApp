@@ -83,6 +83,7 @@ export class Tab2Page implements OnInit {
    sellerEmail: '',
    sellerFirstName:'',
    sellerLastName:'',
+   status:'pending',
      date: new Date(),
 
     })
@@ -94,7 +95,6 @@ export class Tab2Page implements OnInit {
       duration: 2000,
       position: "bottom",
       animated: true,
-      color: "warning",
       buttons: [
           {
               side: "end",
@@ -116,7 +116,7 @@ export class Tab2Page implements OnInit {
   this.validationFormUser.value.sellerFirstName =   this.userDetail.firstname;
   this.validationFormUser.value.sellerLastName =  this.userDetail.lastname;
 
-    this.productService.addProduct( this.validationFormUser.value).then(res =>{
+    this.productService.requestProduct( this.validationFormUser.value).then(res =>{
 
      toast.present().then();
      loader.present().then(res => {
@@ -144,7 +144,7 @@ export class Tab2Page implements OnInit {
   getImages() {
     this.options = {
      width: 200,
-     quality: 25,
+     quality: 30,
      outputType: 1
     };
     this.imageResponse = [];

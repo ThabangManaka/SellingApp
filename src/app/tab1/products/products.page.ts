@@ -3,7 +3,7 @@ import { ProductService } from './../../service/product.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IonSearchbar, LoadingController } from '@ionic/angular';
-
+import { DatePipe } from '@angular/common';
 import { Subscription} from 'rxjs';
 
 @Component({

@@ -13,9 +13,11 @@ export class ProductViewPage implements OnInit {
   id;
   products$;
   products: any;
+  url:string;
   constructor(private productService: ProductService,
     private route: ActivatedRoute,
     private callNumber: CallNumber,
+
     private sms: SMS) { }
 
   ngOnInit() {
@@ -24,7 +26,9 @@ export class ProductViewPage implements OnInit {
 
     this.productService.getProductById(this.id).subscribe(res=> {
      this.products = res
+     this.url = "https://wa.me/"+ this.products.phone+"?text=Hi";
   })
+
 }
 
 launchDialer(n:any){
@@ -33,16 +37,7 @@ launchDialer(n:any){
   .catch(() => console.log('Error launching dialer'));
 }
 
-sendSms() {
-  let options = {
-    replaceLineBreaks: false, // true to replace \n by a new line, false by default
-    android: {
-        intent: ''  // send SMS with the native android SMS messaging
-
-    }
-};
-  this.sms.send(this.products.phone, 'SMS Works', options).then(val => {
-    alert('It works');
-  });
+sendSms(n:any) {
+  this.sms.send(n, 'Hello world!');
 }
 }

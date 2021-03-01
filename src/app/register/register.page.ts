@@ -11,14 +11,26 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterPage implements OnInit {
 
   valdationUserMessage = {
-    password :[
+    Password :[
       {type:"required", message:"please enter your password"},
        {type:"minlength", message: "Password must be at least 5 character"}
     ],
-   email: [
+   Email: [
     {type:"required", message:"please enter your email"},
     {type:"pattern", message: "Email entered is incorrect.Try again"}
-    ]
+    ],
+    Firstname: [
+      {type:"required", message:"please enter your first name"},
+      {type:"minlength", message: "First Name must be at least 3 character"}
+      ],
+      Lastname: [
+        {type:"required", message:"please enter your last name"},
+        {type:"minlength", message: "Last Name must be at least 3 character"}
+        ],
+      Phone: [
+       {type:"required", message:"please enter your phone"},
+       {type:"minlength", message: "Phone must be at least 10 number"}
+       ]
   }
   validationFormUser: FormGroup;
   constructor(private _formbuilder : FormBuilder,
@@ -29,11 +41,11 @@ export class RegisterPage implements OnInit {
     this.validationFormUser = this._formbuilder.group({
       firstname: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(3)
       ])),
       lastname: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(5)
+        Validators.minLength(3)
       ])),
       phone: new FormControl('', Validators.compose([
         Validators.required,

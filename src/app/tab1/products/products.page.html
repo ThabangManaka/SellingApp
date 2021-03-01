@@ -1,8 +1,8 @@
 <ion-header>
 
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-button color="primary" routerLink="/">
+      <ion-button  routerLink="/">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,14 +15,19 @@
 <ion-content>
   <ion-row class="sell-Items">
     <ion-col size="6" *ngFor="let p of products" class="ion-text-left">
-        <ion-card class="ion-no-margin">
+        <ion-card class="ion-no-margin" [routerLink]="['/','tabs','tab1',p.category,p.key]">
 
               <img src={{p.multiImages[0]}}>
-            <p class="parName">{{p.name}}</p>
-              <p color="dark">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
+              <p class="price">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
+              <p class="name">{{p.name}}</p>
+               <div>
+                 <div class="location">
+                  {{p.location}}
+                 </div>
+                 <div class="date">
 
-
-              <ion-label class="view" [routerLink]="['/','tabs','tab1',p.category,p.key]">VIEW</ion-label>
+                 </div>
+               </div>
             </ion-card>
             </ion-col>
   </ion-row>

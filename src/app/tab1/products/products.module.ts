@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ProductsPageRoutingModule } from './products-routing.module';
-
+import { DatePipe } from '@angular/common';
 import { ProductsPage } from './products.page';
 
 
@@ -16,6 +16,7 @@ import { ProductsPage } from './products.page';
     IonicModule,
     ProductsPageRoutingModule
   ],
-  declarations: [ProductsPage]
+  declarations: [ProductsPage],
+  providers: [DatePipe]
 })
 export class ProductsPageModule {}

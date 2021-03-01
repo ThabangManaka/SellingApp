@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 export class LoginPage implements OnInit {
   valdationUserMessage = {
     Password :[
-      {type:"required", message:"Please enter your password"},
+      {type:"required", message:"Please Enter Your Password"},
        {type:"minlength", message: "Password must be at least 5 character"}
     ],
    Email: [
-    {type:"required", message:"Please enter your email"},
-    {type:"pattern", message: "Email entered is incorrect.Try again"}
+    {type:"required", message:"Please Enter Your Email"},
+    {type:"pattern", message: "Email Entered Is Incorrect.Try Again"}
     ]
   }
   validationFormUser: FormGroup;

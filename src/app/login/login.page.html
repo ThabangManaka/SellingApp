@@ -17,38 +17,33 @@
 
     <ion-item transparent>
       <ion-icon name="mail-outline" slot="start"></ion-icon>
-      <ion-input type="text" name="email" formControlName="email" placeholder="Email"></ion-input>
-      <div>
-        <ng-container *ngFor="let validation of  valdationUserMessage.Email">
-          <div class="error_message"
-            *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
-            {{validation.message}}
-          </div>
-        </ng-container>
-      </div>
+      <ion-input type="text" name="email" formControlName="email" placeholder="Please enter email"></ion-input>
     </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+       <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
     <ion-item transparent>
       <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
       <ion-input type="password" name="pasword" formControlName="password" placeholder="**********"></ion-input>
-      <div>
-        <ng-container *ngFor="let validation of  valdationUserMessage.Password">
-          <div class="error_message"
-            *ngIf="(validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
-            {{validation.message}}
-          </div>
-        </ng-container>
-      </div>
     </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Password">
+        <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+          {{validation.message}}
+         </div>
+      </ng-container>
+    </div>
 
-    <ion-label class="forgot-password" routerLink="/forgot-password"><a>Forgot Password?</a></ion-label>
-    <div linespace></div>
 
+    <p class="forgot-password" routerLink="/forgot-password"><a>Forgot Password?</a></p>
     <ion-button color="secondary" type="submit" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">
       Login </ion-button>
 
-      <ion-label class="ion-text-center">Don't have an account? <span class="link-button" routerLink="/register" ><a>Sign Up</a></span>
-
-      </ion-label>
+      <p class="info">Don't have an account? <span class="link-button" routerLink="/register" ><a>Sign Up</a></span></p>
   </form>
 
 </ion-content>

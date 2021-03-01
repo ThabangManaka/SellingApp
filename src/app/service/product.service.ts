@@ -1,3 +1,4 @@
+import { Product } from './../IProduct';
 
 import { Injectable, Query } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -16,12 +17,14 @@ export class ProductService {
     private loadingController: LoadingController,
 ) { }
 
-  async addProduct(product){
 
-    return this.db.list('/products').push(product);
+  async requestProduct(payload : Product){
+    console.log(payload)
+   return this.firestore.collection('request/').add(payload);
+
   }
 
- getProducts(categoryName){
+ getProducts(categoryName):Observable<Product[]>{
 
  return this.db.list('/products', ref => ref.orderByChild("category")
  .equalTo(categoryName)).snapshotChanges()

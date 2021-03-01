@@ -11,5 +11,6 @@ multiImages: any[];
 sellerEmail: string;
 sellerFirstName: string;
 sellerLastName: string;
+status: string
 date: Date
 }
