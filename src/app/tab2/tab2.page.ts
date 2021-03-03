@@ -127,9 +127,9 @@ export class Tab2Page implements OnInit {
     } ).catch(res => {
       console.log(res);
     });
+
+    this.validationFormUser.reset();
   }
-
-
   createImage(img) {
     const newImage = new FormControl(img, Validators.required);
     (<FormArray>this.validationFormUser.get('multiImages')).push(newImage)
@@ -140,7 +140,6 @@ export class Tab2Page implements OnInit {
       return this.validationFormUser.get('multiImages') as FormArray;
     }
   }
-
   getImages() {
     this.options = {
      width: 300,

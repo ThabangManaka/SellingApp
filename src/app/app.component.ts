@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   userDetail: any;
   constructor(public authService: AuthService,
     private secureStorageService : SecureStorageService) {
-
+         this.authService.isLoggedIn
      }
 
   async ngOnInit() {
