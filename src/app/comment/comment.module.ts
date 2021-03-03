@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { CommentPageRoutingModule } from './comment-routing.module';
-import { StarRatingModule } from 'ionic5-star-rating';
+// import { StarRatingModule } from 'ionic5-star-rating';
 import { CommentPage } from './comment.page';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { CommentPage } from './comment.page';
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    StarRatingModule,
+    // StarRatingModule,
     CommentPageRoutingModule
   ],
   declarations: [CommentPage]

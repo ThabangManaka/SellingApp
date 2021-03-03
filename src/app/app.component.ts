@@ -41,4 +41,9 @@ export class AppComponent implements OnInit {
   menuItemForce(): void {
     this.showForce = !this.showForce;
   }
+
+  la()
+  {
+    this.authService.userInfo()
+  }
 }

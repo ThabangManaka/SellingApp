@@ -3,12 +3,13 @@ import { Register } from '../IRegister';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import  firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+ all:Register;
   constructor(private afAuth: AngularFireAuth,
     private firestore: AngularFirestore,
     private router : Router) {
@@ -57,6 +58,25 @@ export class AuthService {
       }).catch((error) => {
         window.alert(error)
       });
+  }
+
+  userInfo()
+  {
+    firebase.auth().onAuthStateChanged((users) =>{
+      if (users) {
+    
+        var userId = users.uid; 
+        console.log("ID of user Logged in"+userId)
+       firebase.database().ref('/users/' + userId).once("value").then( userProfile =>{
+      this.all = new Register(userProfile.val().firstname,userProfile.val().lastname,userProfile.val().phone,userProfile.val().email)
+       console.log(userProfile.val().email);
+   
+        })
+       } else {
+        console.log("user not logged in");
+        
+    }
+    });
   }
 
 }
