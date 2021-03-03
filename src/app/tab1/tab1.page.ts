@@ -15,7 +15,11 @@ export class Tab1Page implements OnInit {
   categories$;
   categories: any;
   saleProduct: any;
-
+  sliderConfig = {
+  spaceBetween: 10,
+ slidesPerView: 1.6,
+ centeredSlides: true
+  }
   constructor(private categoryService : CategoryService,
     private productService: ProductService,
     private loadingController: LoadingController,

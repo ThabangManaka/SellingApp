@@ -10,6 +10,7 @@ import { Subscription} from 'rxjs';
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
+  providers: [DatePipe]
 })
 export class ProductsPage implements OnInit, OnDestroy{
 

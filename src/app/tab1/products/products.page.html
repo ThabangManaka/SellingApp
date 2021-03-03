@@ -12,20 +12,20 @@
 
 </ion-header>
 
-<ion-content>
+<ion-content >
   <ion-row class="sell-Items">
     <ion-col size="6" *ngFor="let p of products" class="ion-text-left">
-        <ion-card class="ion-no-margin" [routerLink]="['/','tabs','tab1',p.category,p.key]">
+        <ion-card  class="ion-no-margin " [routerLink]="['/','tabs','tab1',p.category,p.key]">
 
               <img src={{p.multiImages[0]}}>
               <p class="price">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
-              <p class="name">{{p.name}}</p>
-               <div>
-                 <div class="location">
-                  {{p.location}}
-                 </div>
-                 <div class="date">
+              <p class="name"> <ion-label>{{p.name}}</ion-label></p>
 
+               <div>
+                 <ion-label>{{p.location}}</ion-label>
+
+                 <div class="date">
+                  <!-- <ion-label>{{p.date }}</ion-label> -->
                  </div>
                </div>
             </ion-card>

@@ -143,8 +143,8 @@ export class Tab2Page implements OnInit {
 
   getImages() {
     this.options = {
-     width: 200,
-     quality: 30,
+     width: 300,
+     quality: 100,
      outputType: 1
     };
     this.imageResponse = [];
