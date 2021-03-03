@@ -42,8 +42,5 @@ export class AppComponent implements OnInit {
     this.showForce = !this.showForce;
   }
 
-  la()
-  {
-    this.authService.userInfo()
-  }
+
 }
