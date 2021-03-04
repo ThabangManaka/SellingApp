@@ -31,6 +31,14 @@ const routes: Routes = [
         path: 'comment',
         loadChildren: () => import('../comment/comment.module').then( m => m.CommentPageModule)
       },
+      {
+        path: 'advert',
+        loadChildren: () => import('../advert/advert.module').then( m => m.AdvertPageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
+      },
 
       {
         path: '',

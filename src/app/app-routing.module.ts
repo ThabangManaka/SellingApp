@@ -32,6 +32,15 @@ const routes: Routes = [
     redirectTo: 'tabs',
     pathMatch: 'full'
   },
+  // {
+  //   path: 'advert',
+  //   loadChildren: () => import('./advert/advert.module').then( m => m.AdvertPageModule)
+  // },
+  // {
+  //   path: 'profile',
+  //   loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  // },
+
 
   // {
   //   path: 'category',
