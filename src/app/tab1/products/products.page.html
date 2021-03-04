@@ -7,14 +7,14 @@
       </ion-button>
     </ion-buttons>
 
-    <ion-searchbar #search (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
+    <ion-searchbar debounce="300" #search (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
 
 <ion-content>
   <ion-row class="sell-Items">
-    <ion-col size="6" *ngFor="let p of products" class="ion-text-left">
+    <ion-col size="6" *ngFor="let p of filteredProducts" class="ion-text-left">
       <ion-card class="ion-no-margin " [routerLink]="['/','tabs','tab1',p.category,p.key]">
         <ion-label>
           <img src={{p.multiImages[0]}}>

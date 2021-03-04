@@ -37,14 +37,14 @@ export class ProductsPage implements OnInit, OnDestroy{
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id)
 
-   this.productService.getProducts(this.id).subscribe(res=> {
-     console.log(res)
+    this.productService.getProducts(this.id).subscribe(res=> {
     this.products = res
     loader.dismiss().then();
 
  }),
 
-   this.subscription =this.productService.getProducts(this.id).subscribe(products=>this.filteredProducts = this.products =products);
+   this.subscription =this.productService.getProducts(this.id)
+   .subscribe(products=>this.filteredProducts = this.products =products);
   }
 
    ionViewDidEnter() {
@@ -54,13 +54,12 @@ export class ProductsPage implements OnInit, OnDestroy{
    }
   searchproducts(event) {
    const val = event.target.value;
-   console.log(val)
-    this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
-  }
 
-  searchproduct(event) {
+   this.filteredProducts = (val) ? this.products.filter(p => p.name.toLowerCase().includes(val.toLowerCase())) : this.products;
 
   }
+
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
