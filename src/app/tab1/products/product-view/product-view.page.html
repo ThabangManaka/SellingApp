@@ -12,86 +12,102 @@
   <ion-card>
     <ion-slides pager="true" class="product-slider">
       <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
-        <img src="{{p }}">
+        <img src="{{p}}">
       </ion-slide>
     </ion-slides>
     <ion-card-header>
       <ion-card-title>{{products?.name}}</ion-card-title>
-      <ion-card-subtitle color="secondary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle>
+      <!-- <ion-card-subtitle color="primary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle> -->
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card-subtitle color="primary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card-subtitle>
+              <ion-icon name="location-outline" color="primary"></ion-icon><b> {{products?.location}}</b>
+            </ion-card-subtitle>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card-header>
+
+    <ion-card class="descDetail">
+      <div class="innerDetail">
+        <p class="ion-text-left"><b>Description</b></p>
+        <ul>
+          <li>
+            <ion-label>{{products?.description}}</ion-label>
+          </li>
+        </ul>
+      </div>
+    </ion-card>
   </ion-card>
 
-  <ion-card class="descDetail">
+  <!-- <ion-card class="location">
+    <div class="location-details">
+      <p class="ion-text-left"><b>Location</b></p>
+      <p>
+        <ion-icon name="location-outline" color="primary"></ion-icon><b> {{products?.location}}</b>
+      </p>
+    </div>
+  </ion-card> -->
+
+  <!-- <ion-card class="descDetail">
     <div class="innerDetail">
-      <h3 class="ion-text-left"><b>Description</b></h3>
+      <p class="ion-text-left"><b>Description</b></p>
       <ul>
         <li>
-          <p>{{products?.description}}</p>
+          <ion-label>{{products?.description}}</ion-label>
         </li>
       </ul>
     </div>
-  </ion-card>
+  </ion-card> -->
 
-  <ion-card class="location">
-    <div class="location-details">
-      <h3 class="ion-text-left"><b>Location</b></h3>
-      <p>
-        <ion-icon name="location-outline" color="secondary"></ion-icon><b> {{products?.location}}</b>
-      </p>
-    </div>
-  </ion-card>
-
-
-   <ion-card>
-     <ion-grid>
-       <ion-row>
-         <ion-col>
-          <h3 >Phone Number</h3>
-          <!-- <P>{{products?.phone}}</P> -->
+  <ion-item lines="none">
+    <!-- <ion-card> -->
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+           <p class="text-align-center"><b>Chat with seller</b></p>
+           <!-- <P>{{products?.phone}}</P> -->
+          </ion-col>
+          <ion-col>
+            <p></p>
+           <ion-button shape="block" fill="solid" href="{{url}}" color="success">
+             <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
          </ion-col>
-         <ion-col>
-           <p></p>
-          <ion-button shape="block" fill="solid" href="{{url}}" color="success">
-            <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
-        </ion-col>
-       </ion-row>
-     </ion-grid>
-
-
-  </ion-card>
-  <ion-card>
-    <ion-row>
-      <ion-col>
-        <ion-button  shape="block" fill="solid" (click)="sendSms(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button  shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
-      </ion-col>
-
-    </ion-row>
-  </ion-card>
-
+        </ion-row>
+      </ion-grid>
+   <!-- </ion-card> -->
+   </ion-item>
 
   <ion-card class="user-details">
+    <p class="ion-text-left"><b>Seller description</b></p>
     <div class="user">
-      <h3 class="ion-text-left"><b>Seller description</b></h3>
-      <h4>{{products?.sellerFirstName}} {{products?.sellerLastName}}
-        <div class="separator">
-          <hr>
-        </div>
-      </h4>
-
-
-          <div class="email">
-            <ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}
-          </div>
-          <div class="contact">
-            <ion-icon name="call-outline" color="primary"></ion-icon> {{products?.phone}}
-          </div>
+      <img src="data:image/png;base64,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">
+      <ion-label>
+        <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
+        <p><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
+        <p><ion-icon name="call-outline" color="primary"></ion-icon> {{products?.phone}}</p>
+      </ion-label>
     </div>
   </ion-card>
 
-
-
+<ion-item lines="none">
+  <!-- <ion-card> -->
+    <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button  shape="block" fill="solid" (click)="sendSms(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button  shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+  <!-- </ion-card>  -->
+</ion-item>
 
 </ion-content>
