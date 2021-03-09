@@ -1,0 +1,127 @@
+#myFileInput{
+    position: absolute;
+    opacity: 0;
+  }
+  ion-content{
+    --background: #f5f5f3;
+  }
+  
+    #form {
+      margin-top: 15%;
+      padding-left: 30px;
+      padding-right: 30px;
+  
+  
+    }
+    [transparent]{
+      --background: transparent;
+    }
+    ion-label{
+      color: grey !important;
+      --padding-bottom:15px;
+      --padding-top:15px;
+      --padding-start: 5px;
+      font-size:15px;
+      text-indent:1px;
+      padding-left: 10px !important;
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+    }
+    ion-input{
+      --color:#000;
+      --padding-bottom:15px;
+      --padding-top:15px;
+      --padding-start: 5px;
+      font-size:15px;
+      text-indent:1px;
+      padding-left: 10px !important;
+    }
+    ion-icon{
+      width:30px;
+  
+    }
+    ion-item{
+      --highlight-color-focused: transparent;
+      --highlight-height:0;
+      --highlight-color-invalid:#000;
+      --highlight-color-valid:#ddd;
+      --min-height: 65px;
+      --padding-start:0;
+    }
+    ion-text{
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+    }
+    [linespace]{
+      height:0.5px;
+    }
+    .info{
+      color:#000;
+      opacity:.8;
+      font-size:13px;
+      display: block;
+      text-align: center;
+    }
+    ion-textarea{
+      --color:#000;
+      --padding-bottom:15px;
+      --padding-top:15px;
+      --padding-start: 5px;
+      font-size:18px;
+      text-indent:1px;
+      padding-left: 10px !important;
+    }
+    ion-textarea{
+     // height: 55px;
+      box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+     // --highlight-height: 0px;
+  
+    }
+  ion-item {
+    // border-radius: 50px;
+     height: 55px;
+     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+     --highlight-height: 0px;
+  
+     ion-input {
+       font-size: 18px;
+       --padding-top: 20px;
+       --padding-bottom: 15px;
+       --padding-start: 5px;
+     }
+  
+  
+     a {
+       font-size: 17px;
+       letter-spacing: 0.5px;
+       text-decoration: none;
+     }
+   }
+  /* Image CSS */
+  
+  .image-container {
+    min-height: 200px;
+    background-size: cover;
+  }
+  
+  @media (min-width: 0px) {
+    .images {
+      column-count: 2;
+    }
+  }
+  
+  @media (min-width: 420px) {
+    .images {
+      column-count: 3;
+    }
+  }
+  
+  @media (min-width: 720px) {
+    .images {
+      column-count: 4;
+    }
+  }
+  
+  .one-image {
+    margin: 2px;
+  }
