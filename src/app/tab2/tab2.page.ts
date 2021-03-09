@@ -69,6 +69,7 @@ export class Tab2Page implements OnInit {
 
   ngOnInit() {
      this.secureStorageService.get('user').then(res => {
+       console.log(res);
     this.userDetail =res
 
   })

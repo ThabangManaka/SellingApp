@@ -12,10 +12,14 @@ import { Sale } from '../ISale';
 })
 export class ProductService {
   query: any;
+
+  private dbPath = '/request';
   constructor(private db: AngularFireDatabase,
     private firestore: AngularFirestore,
     private loadingController: LoadingController,
-) { }
+) {
+  // this.requestRef = firestore.collection(this.dbPath);
+ }
 
 
   async requestProduct(payload : Product){
@@ -37,6 +41,22 @@ export class ProductService {
  })
  ));
   }
+
+
+  getMessage(email):Observable<Product[]>{
+
+    return this.db.list('/products', ref => ref.orderByChild("sellerEmail")
+    .equalTo(email)).snapshotChanges()
+    .pipe(map(actions => actions.map(a => {
+
+     const key = a.payload.key;
+     let obj:any = a.payload.val()
+
+     return {key, ...obj};
+    })
+    ));
+     }
+
 
   getProductById(id) {
    console.log(id)
@@ -71,9 +91,14 @@ export class ProductService {
   );
 }
 
+ }
 
-    }
+//  getProductByIds(key){
 
+//   var docRef = this.firestore.collection('products').ref;
+
+//   return docRef.where('category', '==', key).get();
+// }
 
 
 
