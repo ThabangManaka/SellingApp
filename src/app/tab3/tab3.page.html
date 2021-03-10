@@ -6,33 +6,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" *ngFor="let m of messageDetail">
+<ion-content [fullscreen]="true" >
+  <ion-list *ngFor="let m of messageDetail">
 
-  <ion-item *ngIf="m.status === 'Approved' ">
-   <ion-thumbnail>
+
+  <ion-item >
+   <ion-thumbnail class="ion-text-center">
 
     <ion-label>{{m.date  | date :'d/M/yy'}}</ion-label>
-      <ion-icon name="mail-outline"></ion-icon>
+      <ion-icon name="mail"></ion-icon>
    </ion-thumbnail>
 
     <ion-label>{{m.message}}</ion-label>
 
     <ion-button expand="block" fill="clear" shape="round">
-      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle"></ion-icon>
+      <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
     </ion-button>
   </ion-item>
 
-  <ion-item *ngIf="m.status === 'Declined' ">
-    <ion-thumbnail>
 
-     <ion-label>{{m.date  | date :'d/M/yy'}}</ion-label>
-      <ion-icon name="mail-outline"></ion-icon>
-    </ion-thumbnail>
-
-     <ion-label>{{m.message}}</ion-label>
-
-     <ion-button expand="block" fill="clear" shape="round">
-      <ion-icon name="close-outline"></ion-icon>
-     </ion-button>
-   </ion-item>
+  </ion-list>
 </ion-content>

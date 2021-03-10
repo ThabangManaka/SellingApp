@@ -32,22 +32,21 @@ export class AdvertPage implements OnInit {
         ],
         Price:[
           {type:"required", message:"Please enter price"}
-        ]
-          ,
-        Phone:[
-          {type:"required", message:"Please enter Phone.No"},
-          {type:"minlength", message: "name must be at least 10 Numbers"},
+        ]  ,
 
-        ],
         Percentage: [
-          {type:"required", message:"Please enter Percentages"},
-          {type:"minlength", message: "Number"}
+          {type:"required", message:"Please enter Percentages"}
           ],
 
       Description :[
         {type:"required", message:"Please enter description"},
          {type:"minlength", message: "description must be at least 5 character"}
       ],
+      ImageUrl :[
+        {type:"required", message:"Please enter image url"}
+
+      ],
+
 
     }
     validationFormUser: FormGroup;
@@ -80,10 +79,10 @@ export class AdvertPage implements OnInit {
  this.validationFormUser = this._formbuilder.group({
  name: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(3)])),
  price: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2)   ])),
- phone: new FormControl('', Validators.compose([  Validators.required, Validators.minLength(2) ])),
- salPercentage: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)])),
+ 
+ imageUrl: new FormControl('', Validators.compose([  Validators.required ])),
+ salPercentage: new FormControl('', Validators.compose([Validators.required])),
  description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)])),
-  multiImages: this._formbuilder.array([]),
    sellerEmail: '',
    sellerFirstName:'',
    sellerLastName:'',
@@ -134,32 +133,7 @@ export class AdvertPage implements OnInit {
 
     this.validationFormUser.reset();
   }
-  createImage(img) {
-    const newImage = new FormControl(img, Validators.required);
-    (<FormArray>this.validationFormUser.get('multiImages')).push(newImage)
-  }
 
-  get multiImages(): FormArray {
-    if (this.validationFormUser && this.validationFormUser.get('multiImages')) {
-      return this.validationFormUser.get('multiImages') as FormArray;
-    }
-  }
-  getImages() {
-    this.options = {
-     width: 300,
-     quality: 100,
-     outputType: 1
-    };
-    this.imageResponse = [];
-    this.imagePicker.getPictures(this.options).then((results) => {
-      for (var i = 0; i < results.length; i++) {
-        this.imageResponse.push('data:image/jpeg;base64,' + results[i]);
-        this.createImage('data:image/jpeg;base64,' + results[i])
-      }
-    }, (err) => {
-      alert(err);
-    });
-  }
 
 
 }

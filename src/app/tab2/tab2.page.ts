@@ -116,7 +116,8 @@ export class Tab2Page implements OnInit {
   this.validationFormUser.value.sellerEmail  =   this.userDetail.email;
   this.validationFormUser.value.sellerFirstName =   this.userDetail.firstname;
   this.validationFormUser.value.sellerLastName =  this.userDetail.lastname;
-
+  this.validationFormUser.value.status = "Pending";
+  
     this.productService.requestProduct( this.validationFormUser.value).then(res =>{
 
      toast.present().then();

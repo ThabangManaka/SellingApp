@@ -24,6 +24,7 @@ export class ProductService {
 
   async requestProduct(payload : Product){
     console.log(payload)
+    payload.date =  new Date();
    return this.firestore.collection('request/').add(payload);
 
   }

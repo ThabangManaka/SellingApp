@@ -13,8 +13,8 @@
 
 
      <div class="wrapform">
-       
-        
+
+
 
       <ion-item transparent>
         <ion-input type="text" name="name" formControlName="name" placeholder="Product Name"></ion-input>
@@ -39,30 +39,36 @@
         </ng-container>
       </div>
 
-  
+
 
       <ion-item transparent>
 
-      <ion-input type="text" name="salPercentage" formControlName="salPercentage"  placeholder="Sale Pencentage">
+      <ion-input type="number" name="salPercentage" formControlName="salPercentage"  placeholder="Sale Pencentage">
 
       </ion-input>
       </ion-item>
           <div>
-            <ng-container *ngFor="let validation of  valdationUserMessage.Pencentage">
+            <ng-container *ngFor="let validation of  valdationUserMessage.Percentage">
              <div class="error_message" *ngIf="validationFormUser.get('salPercentage').hasError(validation.type) && (validationFormUser.get('salPercentage').dirty || validationFormUser.get('salPercentage').touched)">
               {{validation.message}}
              </div>
             </ng-container>
           </div>
-         
+
           <ion-item transparent>
-            <ion-input type="text" name="imageUrl" formControlName="imageUrl" placeholder="imageUrl"></ion-input>
-    
+            <ion-input type="text" name="imageUrl" formControlName="imageUrl" placeholder="Image Url"></ion-input>
           </ion-item>
-          <ion-textarea type="text" name="description" formControlName="description"  placeholder="Describe What You Are Selling.">
+          <div>
+            <ng-container *ngFor="let validation of  valdationUserMessage.ImageUrl">
+             <div class="error_message" *ngIf="validationFormUser.get('imageUrl').hasError(validation.type) && (validationFormUser.get('imageUrl').dirty || validationFormUser.get('imageUrl').touched)">
+              {{validation.message}}
+             </div>
+            </ng-container>
+          </div>
+          <ion-textarea type="text" name="description" formControlName="description"  placeholder="Describe What You Are Adverting.">
 
           </ion-textarea>
-       
+
         <div>
           <ng-container *ngFor="let validation of  valdationUserMessage.Description">
            <div class="error_message" *ngIf="validationFormUser.get('description').hasError(validation.type) && (validationFormUser.get('description').dirty || validationFormUser.get('description').touched)">
@@ -70,11 +76,6 @@
            </div>
           </ng-container>
         </div>
-
-
-
-  
-
 
       </div>
      <p class="info"></p>
