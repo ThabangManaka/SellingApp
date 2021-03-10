@@ -52,6 +52,19 @@ export class ProductService {
  })
  ));
   }
+getProductbyEmail(email) :Observable<Product[]>{
+
+  return this.db.list('/products', ref => ref.orderByChild("sellerEmail")
+  .equalTo(email)).snapshotChanges()
+  .pipe(map(actions => actions.map(a => {
+
+   const key = a.payload.key;
+   let obj:any = a.payload.val()
+
+   return {key, ...obj};
+  })
+  ));
+   }
 
 
   getMessage(email):Observable<Product[]>{
