@@ -1,17 +1,30 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 3
+       Notifications
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" >
+  <ion-list *ngFor="let m of messageDetail">
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+  <ion-item >
+   <ion-thumbnail class="ion-text-center">
+
+    <ion-label>{{m.date  | date :'d/M/yy'}}</ion-label>
+      <ion-icon name="mail"></ion-icon>
+   </ion-thumbnail>
+
+    <ion-label>{{m.message}}</ion-label>
+
+    <ion-button expand="block" fill="clear" shape="round">
+      <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle"></ion-icon>
+      <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+
+  </ion-list>
 </ion-content>

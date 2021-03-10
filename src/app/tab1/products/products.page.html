@@ -17,7 +17,7 @@
     <ion-col size="6" *ngFor="let p of filteredProducts" class="ion-text-left">
       <ion-card class="ion-no-margin " [routerLink]="['/','tabs','tab1',p.category,p.key]">
         <ion-label>
-          <img src={{p.multiImages[0]}}>
+         <img src={{p.multiImages[0]}}>
           <p class="price">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
           <p class="name">
             <ion-label>{{p.name}}</ion-label>
@@ -27,7 +27,7 @@
             <ion-label>{{p.location}}</ion-label>
 
             <div class="date">
-              <!-- <ion-label>{{p.date }}</ion-label> -->
+             <ion-label>{{p.date | date :'d MMM yyy'  }}</ion-label>
             </div>
           </div>
         </ion-label>

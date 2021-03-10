@@ -24,7 +24,7 @@ export class RatingsPage implements OnInit {
   loader.present().then();
 
   this.ratingsService.getRatings().subscribe(res=> {
-
+ 
    this.ratings = res
    loader.dismiss().then();
 

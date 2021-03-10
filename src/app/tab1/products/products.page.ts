@@ -43,6 +43,8 @@ export class ProductsPage implements OnInit, OnDestroy{
 
  }),
 
+
+
    this.subscription =this.productService.getProducts(this.id)
    .subscribe(products=>this.filteredProducts = this.products =products);
   }

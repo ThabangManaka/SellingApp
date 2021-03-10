@@ -26,6 +26,7 @@ export class ProductViewPage implements OnInit {
 
     this.productService.getProductById(this.id).subscribe(res=> {
      this.products = res
+     console.log(this.products)
      this.url = "https://wa.me/"+ this.products.phone+"?text=Hi";
   })
 

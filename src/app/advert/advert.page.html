@@ -1,9 +1,89 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>advert</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-canter">
+     Advert
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+
+
+      <form id="form" method="post" enctype="multipart/form-data" [formGroup]="validationFormUser" (ngSubmit)="productForm(validationFormUser.value)">
+
+
+     <div class="wrapform">
+
+
+
+      <ion-item transparent>
+        <ion-input type="text" name="name" formControlName="name" placeholder="Product Name"></ion-input>
+
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.Name">
+         <div class="error_message" *ngIf="validationFormUser.get('name').hasError(validation.type) && (validationFormUser.get('name').dirty || validationFormUser.get('name').touched)">
+          {{validation.message}}
+         </div>
+        </ng-container>
+      </div>
+
+      <ion-item transparent>
+        <ion-input type="number" name="price" formControlName="price" inputmode="decimal" placeholder="R0.00" ></ion-input>
+      </ion-item>
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.Price">
+         <div class="error_message" *ngIf="validationFormUser.get('price').hasError(validation.type) && (validationFormUser.get('price').dirty || validationFormUser.get('price').touched)">
+          {{validation.message}}
+         </div>
+        </ng-container>
+      </div>
+
+
+
+      <ion-item transparent>
+
+      <ion-input type="number" name="salPercentage" formControlName="salPercentage"  placeholder="Sale Pencentage">
+
+      </ion-input>
+      </ion-item>
+          <div>
+            <ng-container *ngFor="let validation of  valdationUserMessage.Percentage">
+             <div class="error_message" *ngIf="validationFormUser.get('salPercentage').hasError(validation.type) && (validationFormUser.get('salPercentage').dirty || validationFormUser.get('salPercentage').touched)">
+              {{validation.message}}
+             </div>
+            </ng-container>
+          </div>
+
+          <ion-item transparent>
+            <ion-input type="text" name="imageUrl" formControlName="imageUrl" placeholder="Image Url"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let validation of  valdationUserMessage.ImageUrl">
+             <div class="error_message" *ngIf="validationFormUser.get('imageUrl').hasError(validation.type) && (validationFormUser.get('imageUrl').dirty || validationFormUser.get('imageUrl').touched)">
+              {{validation.message}}
+             </div>
+            </ng-container>
+          </div>
+          <ion-textarea type="text" name="description" formControlName="description"  placeholder="Describe What You Are Adverting.">
+
+          </ion-textarea>
+
+        <div>
+          <ng-container *ngFor="let validation of  valdationUserMessage.Description">
+           <div class="error_message" *ngIf="validationFormUser.get('description').hasError(validation.type) && (validationFormUser.get('description').dirty || validationFormUser.get('description').touched)">
+            {{validation.message}}
+           </div>
+          </ng-container>
+        </div>
+
+      </div>
+     <p class="info"></p>
+      <div class="sign-btn-wrap">
+       <ion-button type="submit" color="secondary" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Save </ion-button>
+      </div>
+
+  </form>
+
 
 </ion-content>

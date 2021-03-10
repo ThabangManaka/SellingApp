@@ -16,7 +16,9 @@ export class AuthService {
     private secureStorageService :SecureStorageService) {
       this.afAuth.authState.subscribe(user => {
         if (user) {
+      
           this.firestore.collection('users').doc(user.uid).valueChanges().subscribe(res=> {
+         
             this.secureStorageService.set('user',res);
           })
         //  localStorage.setItem('user',JSON.stringify(this.user));
