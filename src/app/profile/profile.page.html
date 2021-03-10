@@ -1,9 +1,99 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>profile</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content >
+  <div class="header">
+    <!-- <h2>{{userDetail.firstname}} {{userDetail.lastname}}</h2> -->
+    <h2>Name Surname</h2>
+    
+    <div class="space-between">
+      <p>email</p>
+      <!-- <p>{{userDetail.email}}</p> -->
+      <p>phone number</p>
+      <!-- <p>{{userDetail.phone}}</p> -->
+    </div>
+  </div>
 
+  <div class="flex">
+    <div class="border-blue">
+      <div class="border-white">
+        <div class="img-box">
+          <img src="../../assets/user.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-card>
+    <ion-item lines="none" >
+      <!-- <ion-avatar slot="start">
+        <img src="../../assets/user.png">
+      </ion-avatar> -->
+      <ion-label>
+        <h4><b>Member since feb 2021</b></h4>
+        <p>Selling for 1+ months</p>
+      </ion-label>
+    </ion-item>
+
+    <div class="spaces">
+      <div class="ads">
+        <ion-badge color="primary">4</ion-badge>
+        <h4>Active ads</h4>
+      </div>
+
+      <div class="ads">
+        <ion-badge color="primary">5</ion-badge>
+        <h4>Total ads</h4>
+      </div>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-item lines="none">
+      <h3><b>Published ads</b></h3>
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2020-audi-rs7-112-1569274021.jpg?crop=0.735xw:0.673xh;0.141xw,0.270xh&resize=480:*">
+       <ion-label>
+         <p><b>2018 AUDi A4</b></p>
+         <p>R190 000</p>
+         <p>Centurion</p>
+       </ion-label>
+        </ion-col>
+
+        <ion-col size="6">
+          <img src="https://cdn.mos.cms.futurecdn.net/vEcELHdn998wRTcCzqV5m9.jpg">
+          <ion-label>
+            <p><b>1TB Acer 10th Gen</b></p>
+            <p>R3500</p>
+            <p>Midrand</p>
+          </ion-label>
+        </ion-col>
+
+        <ion-col size="6">
+          <img src="https://ethicssage.typepad.com/.a/6a0133f440106f970b022ad3a28722200d-pi">
+          <ion-label>
+            <p><b>16GB iPhone 6</b></p>
+            <p>R3000</p>
+            <p>Johannesburg</p>
+          </ion-label>
+        </ion-col>
+
+        <ion-col size="6">
+          <img src="https://i1.wp.com/media.criticalhit.net//2020/10/PS-Boxes-2.jpg?w=850&ssl=1">
+          <ion-label>
+            <p><b>PlayStation4</b></p>
+            <p>R2500</p>
+            <p>Pretoria</p>
+          </ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
 </ion-content>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  constructor( private productService:ProductService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+ 
   }
 
 }
