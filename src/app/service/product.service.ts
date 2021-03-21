@@ -24,6 +24,16 @@ export class ProductService {
 
   }
 
+
+  async requestProducts(payload : Sale){
+    console.log(payload)
+   return this.firestore.collection('SaleRequest/').add(payload);
+
+  }
+
+
+
+
  getProducts(categoryName):Observable<Product[]>{
 
  return this.db.list('/products', ref => ref.orderByChild("category")
