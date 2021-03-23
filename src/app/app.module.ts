@@ -18,8 +18,9 @@ import { SecureStorageService } from './service/secure-storage.service';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { DatePipe } from '@angular/common';
-
+import { Badge } from '@ionic-native/badge/ngx';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { DatePipe } from '@angular/common';
    StarRatingModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, AngularFireStorageModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [ImagePicker,CallNumber,SMS,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  providers: [ImagePicker,CallNumber,SMS,AndroidPermissions,Badge,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SecureStorageService,CurrencyPipe, DatePipe ],
 
   bootstrap: [AppComponent],

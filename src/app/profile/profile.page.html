@@ -12,7 +12,7 @@
     <div class="space-between">
  <p>{{userDetail?.email}}</p>
 
-  <p>{{userDetail?.phone}}</p>
+  <p>{{userProfile?.phone}}</p>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
       </div>
 
       <div class="ads">
-        <ion-badge color="primary">5</ion-badge>
+        <ion-badge color="primary">{{TotalSold}}</ion-badge>
         <h4>Sold Items</h4>
       </div>
     </div>
@@ -64,6 +64,8 @@
          <p>{{p.price| currency: 'R':'symbol':'1.2'}}</p>
          <p>Centurion</p>
        </ion-label>
+
+       <ion-button (click)="onSoldItems(p)"> Item Sold</ion-button>
         </ion-col>
 
       </ion-row>

@@ -1,10 +1,11 @@
+import { BadgeService } from './../service/badge.service';
 import { Router } from '@angular/router';
 
 import { CategoryService } from './../service/category.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { ProductService } from '../service/product.service';
-
+import { Badge } from '@ionic-native/badge/ngx';
 
 @Component({
   selector: 'app-tab1',
@@ -15,6 +16,8 @@ export class Tab1Page implements OnInit {
   categories$;
   categories: any;
   saleProduct: any;
+  badgeNumberTotal: any;
+  badgeNumber: number;
   sliderConfig = {
   spaceBetween: 10,
  slidesPerView: 1.6,
@@ -100,12 +103,16 @@ export class Tab1Page implements OnInit {
   constructor(private categoryService : CategoryService,
     private productService: ProductService,
     private loadingController: LoadingController,
-    private router : Router) {
+    private router : Router,
+    private badge: Badge,
+    private  badgeService : BadgeService) {
 
   }
 
 
  async ngOnInit() {
+  this.getBadge()
+  //console.log(this.badgeNumberTotal)
     const loader = await this.loadingController.create({
       message: 'Please Wait..',
       animated: true,
@@ -126,6 +133,17 @@ export class Tab1Page implements OnInit {
 
    })
 
+  }
+
+  async getBadge(){
+    try {
+      let badgeAmount = await this.badge.get();
+
+      this.badgeNumberTotal = badgeAmount
+      console.log(this.badgeNumberTotal)
+    } catch (e) {
+      console.error(e);
+    }
   }
 
 }

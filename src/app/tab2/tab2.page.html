@@ -16,16 +16,19 @@
         <ion-grid>
           <ion-row>
             <ion-col class="text-center">
-              <ion-button (click)="getImages()">Choose Images
-                <ion-icon name="image-outline"></ion-icon>
 
-              </ion-button>
+                <ion-button   (click)="getImages()">Choose Images
+                  <ion-icon name="image-outline"></ion-icon>
+
+                </ion-button>
             </ion-col>
+
+
           </ion-row>
           <ion-row>
             <ion-col>
-              <div class="images">
-                <div class="one-image" *ngFor="let img of imageResponse">
+              <div  class="images">
+                <div  class="one-image" *ngFor="let img of imageResponse">
                   <img src="{{img}}" alt="" srcset="">
                 </div>
               </div>

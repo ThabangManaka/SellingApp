@@ -1,5 +1,9 @@
 import { AuthService } from './service/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
+
+
+import { Router } from '@angular/router';
 import { CategoryService } from './service/category.service';
 import { LoadingController } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
@@ -12,14 +16,16 @@ import { SecureStorageService } from './service/secure-storage.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,  AfterViewInit {
 
   showForce: boolean;
 
   userDetail: any;
-  constructor(public authService: AuthService,
+  constructor(  private router: Router,
+    private platform: Platform,
+    public authService: AuthService,
     private secureStorageService : SecureStorageService) {
-         this.authService.isLoggedIn
+     //this.initializeApp();
      }
 
   async ngOnInit() {
@@ -27,6 +33,14 @@ export class AppComponent implements OnInit {
   //   this.userDetail =res
   //   console.log(this.userDetail)
   //  })
+
+  }
+
+  async ngAfterViewInit() {
+    this.secureStorageService.get('user').then(res => {
+      this.userDetail =res
+      console.log(this.userDetail)
+     })
 
   }
 
@@ -38,7 +52,21 @@ export class AppComponent implements OnInit {
     this.showForce = !this.showForce;
   }
 
+//  initializeApp() {
+//     this.platform.ready().then(() => {
 
+
+
+//       this.authService.authState.subscribe(state => {
+//         if (state) {
+//           this.router.navigate(['tabs/tab1']);
+//         } else {
+//           this.router.navigate(['login']);
+//         }
+//       });
+
+//     });
+//   }
 
 
 }

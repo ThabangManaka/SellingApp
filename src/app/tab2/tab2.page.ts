@@ -80,6 +80,8 @@ export class Tab2Page implements OnInit {
  location: new FormControl('', Validators.compose([Validators.required, Validators.minLength(5) ])),
  category: new FormControl('', Validators.compose([Validators.required,Validators.minLength(3)])),
  description: new FormControl('', Validators.compose([Validators.required,Validators.minLength(5)])),
+
+
   multiImages: this._formbuilder.array([]),
    sellerEmail: '',
    sellerFirstName:'',
@@ -117,11 +119,12 @@ export class Tab2Page implements OnInit {
   this.validationFormUser.value.sellerFirstName =   this.userDetail.firstname;
   this.validationFormUser.value.sellerLastName =  this.userDetail.lastname;
   this.validationFormUser.value.status = "Pending";
-  
+
     this.productService.requestProduct( this.validationFormUser.value).then(res =>{
 
      toast.present().then();
      loader.present().then(res => {
+      this.validationFormUser.reset();
       this.router.navigateByUrl('/tabs/tab1')
      });
 
@@ -144,7 +147,7 @@ export class Tab2Page implements OnInit {
   }
   getImages() {
     this.options = {
-     width: 300,
+
      quality: 100,
      outputType: 1
     };

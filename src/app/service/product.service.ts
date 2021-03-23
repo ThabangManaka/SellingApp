@@ -36,7 +36,10 @@ export class ProductService {
 
   }
 
-
+   addSold(product: any) {
+     product.date =  new Date();
+     return this.db.list('/soldItem').push(product);
+   }
 
 
  getProducts(categoryName):Observable<Product[]>{
@@ -52,6 +55,7 @@ export class ProductService {
  })
  ));
   }
+
 getProductbyEmail(email) :Observable<Product[]>{
 
   return this.db.list('/products', ref => ref.orderByChild("sellerEmail")
@@ -65,7 +69,18 @@ getProductbyEmail(email) :Observable<Product[]>{
   })
   ));
    }
+soldProduct(email)  : Observable< Product[]> {
+  return this.db.list('/soldItem', ref => ref.orderByChild("sellerEmail")
+  .equalTo(email)).snapshotChanges()
+  .pipe(map(actions => actions.map(a => {
 
+   const key = a.payload.key;
+   let obj:any = a.payload.val()
+
+   return {key, ...obj};
+  })
+  ));
+   }
 
   getMessage(email):Observable<Product[]>{
 
@@ -114,6 +129,11 @@ getProductbyEmail(email) :Observable<Product[]>{
   }))
   );
 }
+
+deleteProduct(product : Product){
+    console.log(product)
+    return this.db.list('/products/').remove(product.key)
+  }
 
  }
 

@@ -1,0 +1,50 @@
+<ion-header translucent no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="light">
+        <ion-icon slot="start" name="arrow-back"></ion-icon> <ion-icon slot="start" name="ios-arrow-back"></ion-icon>
+
+      </ion-button>
+    </ion-buttons>
+    <ion-title>&nbsp;</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" src="../../assets/checkmark-filled.svg"></ion-icon>
+       </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" slot="fixed" >
+    <div class="card">
+      <div class="header">
+        <div class="avatar">
+          <img src="../../assets/player104.png" alt="">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="user-meta ion-text-center">
+          <h3 class="playername">{{userDetail?.firstname}} {{userDetail?.lastname}}</h3>
+          <h5 class="country"> <ion-icon  name="mail-outline"></ion-icon>
+            {{userDetail?.email}} </h5>
+          <h6 class="ranking">Published Items: <ion-chip>
+              <ion-label>2</ion-label>
+            </ion-chip>
+          </h6>
+        </div>
+
+        <ion-slides [options]="slideOpt" >
+          <ion-slide *ngFor="let p of product">
+            <ion-card  >
+            <img class="imgSlide" src="{{p.multiImages[0]}}" />
+            <h3 class="playername">{{p.price| currency: 'R':'symbol':'1.2'}}</h3>
+
+            <h6 class="ranking">{{p.name}}</h6>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </div>
+
+    </div>
+
+</ion-content>

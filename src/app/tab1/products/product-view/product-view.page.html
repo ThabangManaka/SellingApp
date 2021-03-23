@@ -16,10 +16,13 @@
       </ion-slide>
     </ion-slides>
     <ion-card-header>
+      <ion-row>
+        <ion-col size="12">
       <ion-card-title>{{products?.name}}</ion-card-title>
-      <!-- <ion-card-subtitle color="primary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle> -->
 
-      <ion-grid>
+      </ion-col>
+      </ion-row>
+
         <ion-row>
           <ion-col size="6">
             <ion-card-subtitle color="primary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle>
@@ -30,7 +33,7 @@
             </ion-card-subtitle>
           </ion-col>
         </ion-row>
-      </ion-grid>
+
     </ion-card-header>
 
     <ion-card class="descDetail">
@@ -91,6 +94,7 @@
         <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
         <p><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
         <p><ion-icon name="call-outline" color="primary"></ion-icon> {{products?.phone}}</p>
+        <p><a [routerLink]="['/','tabs','tab1',products?.category,products?.key,products?.sellerEmail]" >View Profile</a></p>
       </ion-label>
     </div>
   </ion-card>
@@ -100,7 +104,7 @@
     <ion-grid>
     <ion-row>
       <ion-col >
-        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full"  shape="block" fill="solid" (click)="sendSms(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
+        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full"  shape="block" fill="solid" (click)="sendSMS()"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
       </ion-col>
       <ion-col >
         <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full" shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>

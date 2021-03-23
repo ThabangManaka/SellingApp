@@ -11,7 +11,7 @@
   <div id="header">
     <h2>Login to <br />Application</h2>
     <img src="../../assets/logo.png"/>
-    
+
   </div>
 
   <form id="form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
@@ -45,6 +45,8 @@
       Login </ion-button>
 
       <p class="info">Don't have an account? <span class="link-button" routerLink="/register" ><a>Sign Up</a></span></p>
-  </form>
+
+
+    </form>
 
 </ion-content>

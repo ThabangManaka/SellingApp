@@ -23,8 +23,14 @@
       <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle"></ion-icon>
       <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
     </ion-button>
+
   </ion-item>
 
 
+    <!-- <ion-input type="number" [(ngModel)] ="badgeNumber"></ion-input>
+    <button (click)= "requestPermission()" >Permission</button>
+    <ion-button (click)="setBadge(badgeNumber)">set</ion-button>
+    <ion-button (click)="increaseBadge(badgeNumber)">increse</ion-button>
+    <ion-button (click)="getBadge()"></ion-button> -->
   </ion-list>
 </ion-content>

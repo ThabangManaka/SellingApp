@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
   valdationUserMessage = {
     Password :[
       {type:"required", message:"Please Enter Your Password"},
-       {type:"minlength", message: "Password must be at least 5 character"}
+       {type:"minlength", message: "Password must be at least 6 character"}
     ],
    Email: [
     {type:"required", message:"Please Enter Your Email"},
@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
         ])),
         password: new FormControl('Thabang', Validators.compose([
           Validators.required,
-          Validators.minLength(5)
+          Validators.minLength(6)
         ])),
       })
     }
