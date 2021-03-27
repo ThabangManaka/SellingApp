@@ -1,15 +1,106 @@
-<ion-header class="ion-no-border">
+<!-- <ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="end">
       <ion-button color="primary" routerLink="/login">
         Login</ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  
+  <div class="circleBase type2 circle1"></div>
+ <div class="circleBase type1"></div>
+ <div class="circleBase type2 circle2"></div>
 
-  <div id="header">
+ <ion-label class="welcomeMessage">
+  <!-- <ion-text color="light">Not a member yet?</ion-text> -->
+  <ion-text color="light">
+    <p>Create Your<br>Account</p>
+  </ion-text>
+</ion-label>
+
+<form class="form" [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
+  <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="person-outline" slot="end"></ion-icon>
+      <ion-input name="firstname" formControlName="firstname" placeholder="First Name"> </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Firstname">
+       <div class="error_message" *ngIf="validationFormUser.get('firstname').hasError(validation.type) && (validationFormUser.get('firstname').dirty || validationFormUser.get('firstname').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="person-outline" slot="end"></ion-icon>
+      <ion-input name="lastname" formControlName="lastname" placeholder="Last Name">
+      </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Lastname">
+       <div class="error_message" *ngIf="validationFormUser.get('lastname').hasError(validation.type) && (validationFormUser.get('lastname').dirty || validationFormUser.get('lastname').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="call-outline" slot="end"></ion-icon>
+      <ion-input name="phone" type="number" formControlName="phone" placeholder="Phone">
+      </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Phone">
+       <div class="error_message" *ngIf="validationFormUser.get('phone').hasError(validation.type) && (validationFormUser.get('phone').dirty || validationFormUser.get('phone').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="mail-outline" slot="end"></ion-icon>
+      <ion-input name="email" formControlName="email" placeholder="Email">
+      </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+       <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
+      <ion-input name="password" formControlName="password" placeholder="Password">
+      </ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Password">
+        <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+          {{validation.message}}
+         </div>
+      </ng-container>
+    </div>
+
+    <ion-button expand="block" type="submit" shape="round" [disabled]="!validationFormUser.valid">
+      Sign Up
+      <ion-icon name="enter-outline" slot="end"></ion-icon>
+    </ion-button>
+
+    <p class="login">
+      <ion-note>
+        Already a member? <ion-text color="primary" routerLink="/login">Login</ion-text>
+      </ion-note>
+    </p>
+
+  </ion-list>
+</form>
+
+  <!-- <div id="header">
     <h2>Create your<br />Account</h2>
     <img src="../../assets/logo.png"/>
   </div>
@@ -83,7 +174,7 @@
 
       <p class="info">By pressing 'Sign Up' you agree to <br />our terms & conditions.</p>
 
-  </form>
+  </form> -->
 
 
 </ion-content>
