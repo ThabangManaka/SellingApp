@@ -7,7 +7,7 @@ ion-thumbnail{
   }
 }
 ion-icon{
-  font-size: 22px;
+  font-size: 35px;
 }
 .right
 {
@@ -15,4 +15,21 @@ ion-icon{
 }
 .wrong{
   color: #CA0B00;
+}
+ion-card{
+    // padding: 10px !important;
+    transition: all 250ms ease-in-out !important;
+    border-radius: 10px !important;
+    margin-bottom: 2px !important;
+    border: 1px solid var(--ion-color-medium);
+    width: 95%;
+    background: var(--ion-color-primary);
+    // text-align: center;
+    ion-label{
+      color: #fff;
+    }
+}
+.date{
+  top: 5px;
+  color: #fff;
 }

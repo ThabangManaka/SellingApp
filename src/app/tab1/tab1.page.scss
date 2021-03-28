@@ -5,8 +5,9 @@
 
 }
 
-ion-card{
-  --background:  #f5f5f3;
+.category{
+  --background: rgba(195, 207, 231, 0.428);
+  border:1px solid var(--ion-color-primary);
 }
 ion-icon {
   margin-top: 15px;

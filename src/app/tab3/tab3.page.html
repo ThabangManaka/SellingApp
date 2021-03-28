@@ -1,31 +1,39 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-       Notifications
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      Notifications
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
-  <ion-list *ngFor="let m of messageDetail">
-
-
-  <ion-item >
-   <ion-thumbnail class="ion-text-center">
-
-    <ion-label>{{m.date  | date :'d/M/yy'}}</ion-label>
-      <ion-icon name="mail"></ion-icon>
-   </ion-thumbnail>
-
-    <ion-label>{{m.message}}</ion-label>
-
-    <ion-button expand="block" fill="clear" shape="round">
-      <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle"></ion-icon>
-      <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
-    </ion-button>
-
-  </ion-item>
-
+<ion-content [fullscreen]="true">
+  <ion-list lines="none" *ngFor="let m of messageDetail">
+    <ion-item>
+      <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle" ></ion-icon>
+      <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle" ></ion-icon>
+    <ion-card class="ion-no-margin ion-padding">
+      <!-- <ion-thumbnail class="ion-text-center"> -->
+        
+        <!-- <ion-icon name="mail"></ion-icon> -->
+      <!-- </ion-thumbnail> -->
+      <ion-label>{{m.message}}</ion-label>
+      <ion-label class="ion-text-right date">{{m.date  | date :'d/M/yy'}}</ion-label>
+      <!-- <ion-button expand="block" fill="clear" shape="round">
+        <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle"></ion-icon>
+        <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
+      </ion-button> -->
+      <!-- <div class="bottom-info ion-text-right" >
+        <ion-label> -->
+        <!-- <ion-button expand="block" fill="clear" shape="round"> -->
+          <!-- <ion-note >
+          <ion-icon class="right" *ngIf="m.status === 'Approved'" name="checkmark-circle" ></ion-icon>
+          <ion-icon class="wrong" *ngIf="m.status === 'Declined'" name="close-circle"></ion-icon>
+          </ion-note> -->
+        <!-- </ion-button> -->
+      <!-- </ion-label> -->
+      <!-- </div> -->
+    </ion-card>
+</ion-item>
 
     <!-- <ion-input type="number" [(ngModel)] ="badgeNumber"></ion-input>
     <button (click)= "requestPermission()" >Permission</button>
