@@ -1,118 +1,137 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title class="ion-text-canter">
-     Product Form
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar no-border-top>
+    <!-- <ion-title class="ion-text-canter">
+      Product Form
     </ion-title>
+  </ion-toolbar> -->
+    <ion-buttons slot="end">
+      <ion-button class="cart" routerLink="/tabs/tab3">
+        <ion-icon name="notifications-outline" size="large" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-badge color="success" slot="end">{{this.badgeNumberTotal}}</ion-badge>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  
 
 
-      <form id="form" method="post" enctype="multipart/form-data" [formGroup]="validationFormUser" (ngSubmit)="productForm(validationFormUser.value)">
+  <form id="form" method="post" enctype="multipart/form-data" [formGroup]="validationFormUser"
+    (ngSubmit)="productForm(validationFormUser.value)">
 
 
-      <div class="wrapform">
-        <ion-grid>
-          <ion-row>
-            <ion-col class="text-center">
+    <div class="wrapform">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="text-center">
 
-                <ion-button   (click)="getImages()">Choose Images
-                  <ion-icon name="image-outline"></ion-icon>
+            <ion-button (click)="getImages()">Choose Images
+              <ion-icon name="image-outline"></ion-icon>
 
-                </ion-button>
-            </ion-col>
+            </ion-button>
+          </ion-col>
 
 
-          </ion-row>
-          <ion-row>
-            <ion-col>
-              <div  class="images">
-                <div  class="one-image" *ngFor="let img of imageResponse">
-                  <img src="{{img}}" alt="" srcset="">
-                </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="images">
+              <div class="one-image" *ngFor="let img of imageResponse">
+                <img src="{{img}}" alt="" srcset="">
               </div>
-            </ion-col>
-          </ion-row>
-          </ion-grid>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 
 
-      <ion-item transparent>
+      <ion-item transparent class="ion-margin">
         <ion-input type="text" name="name" formControlName="name" placeholder="Product Name"></ion-input>
 
       </ion-item>
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Name">
-         <div class="error_message" *ngIf="validationFormUser.get('name').hasError(validation.type) && (validationFormUser.get('name').dirty || validationFormUser.get('name').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('name').hasError(validation.type) && (validationFormUser.get('name').dirty || validationFormUser.get('name').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
 
-      <ion-item transparent>
-        <ion-input type="number" name="price" formControlName="price" inputmode="decimal" placeholder="R0.00" ></ion-input>
+      <ion-item transparent class="ion-margin">
+        <ion-input type="number" name="price" formControlName="price" inputmode="decimal" placeholder="R0.00">
+        </ion-input>
       </ion-item>
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Price">
-         <div class="error_message" *ngIf="validationFormUser.get('price').hasError(validation.type) && (validationFormUser.get('price').dirty || validationFormUser.get('price').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('price').hasError(validation.type) && (validationFormUser.get('price').dirty || validationFormUser.get('price').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
 
-      <ion-item transparent>
-        <ion-input type="number" name="phone" placeholder="Phone number" formControlName="phone" ></ion-input>
+      <ion-item transparent class="ion-margin">
+        <ion-input type="number" name="phone" placeholder="Phone number" formControlName="phone"></ion-input>
       </ion-item>
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Price">
-         <div class="error_message" *ngIf="validationFormUser.get('phone').hasError(validation.type) && (validationFormUser.get('phone').dirty || validationFormUser.get('phone').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('phone').hasError(validation.type) && (validationFormUser.get('phone').dirty || validationFormUser.get('phone').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
 
-      <ion-item transparent>
+      <ion-item transparent class="ion-margin">
         <ion-input type="text" name="Address Here" formControlName="location" placeholder="Location"></ion-input>
       </ion-item>
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Location">
-         <div class="error_message" *ngIf="validationFormUser.get('location').hasError(validation.type) && (validationFormUser.get('location').dirty || validationFormUser.get('location').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('location').hasError(validation.type) && (validationFormUser.get('location').dirty || validationFormUser.get('location').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
 
-      <ion-item transparent>
+      <ion-item transparent class="ion-margin">
         <ion-label> Select Category </ion-label>
-        <ion-select name="category" formControlName="category"  >
+        <ion-select name="category" formControlName="category">
           <ion-select-option *ngFor="let c of categories" [value]="c.$key">{{c.name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.Category">
-         <div class="error_message" *ngIf="validationFormUser.get('category').hasError(validation.type) && (validationFormUser.get('category').dirty || validationFormUser.get('category').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('category').hasError(validation.type) && (validationFormUser.get('category').dirty || validationFormUser.get('category').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
 
-      <ion-textarea type="text" name="description" formControlName="description"  placeholder="Describe What You Are Selling.">
-
+      <ion-textarea class="ion-margin" type="text" name="description" formControlName="description"
+        placeholder="Describe What You Are Selling.">
       </ion-textarea>
+      <div>
+        <ng-container *ngFor="let validation of  valdationUserMessage.Description">
+          <div class="error_message"
+            *ngIf="validationFormUser.get('description').hasError(validation.type) && (validationFormUser.get('description').dirty || validationFormUser.get('description').touched)">
+            {{validation.message}}
+          </div>
+        </ng-container>
+      </div>
 
-    <div>
-      <ng-container *ngFor="let validation of  valdationUserMessage.Description">
-       <div class="error_message" *ngIf="validationFormUser.get('description').hasError(validation.type) && (validationFormUser.get('description').dirty || validationFormUser.get('description').touched)">
-        {{validation.message}}
-       </div>
-      </ng-container>
     </div>
-
-      </div>
-     <p class="info"></p>
-      <div class="sign-btn-wrap">
-       <ion-button type="submit" color="secondary" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Save </ion-button>
-      </div>
+    <p class="info"></p>
+    <div class="ion-text-center">
+      <ion-button type="submit" shape="round" class="sign-btn"
+        [disabled]="!validationFormUser.valid">
+        Save 
+        <ion-icon name="save-outline" slot="end"></ion-icon>
+      </ion-button>
+    </div>
 
   </form>
 

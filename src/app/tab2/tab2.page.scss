@@ -2,19 +2,30 @@
   position: absolute;
   opacity: 0;
 }
+.cart{
+  ion-icon{
+    height: 25px;
+  width: 40px;
+  }
+}
 ion-content{
-  --background: #f5f5f3;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
   #form {
     margin-top: 2%;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 
 
   }
   [transparent]{
     --background: transparent;
+  }
+  .error_message{
+    color: red;
+    text-align: center;
+    font-size: 14px;
   }
   ion-label{
     color: grey !important;
@@ -40,14 +51,16 @@ ion-content{
     width:30px;
 
   }
-  ion-item{
-    --highlight-color-focused: transparent;
-    --highlight-height:0;
-    --highlight-color-invalid:#000;
-    --highlight-color-valid:#ddd;
-    --min-height: 65px;
-    --padding-start:0;
-  }
+  // ion-item{
+  //   --highlight-color-focused: transparent;
+  //   --highlight-height:0;
+  //   --highlight-color-invalid:#000;
+  //   --highlight-color-valid:#ddd;
+  //   --min-height: 45px;
+  //   --padding-start:0;
+  //   border-radius: 10px;
+  //   border: 1px solid;
+  // }
   ion-text{
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
@@ -66,10 +79,14 @@ ion-content{
     --color:#000;
     --padding-bottom:15px;
     --padding-top:15px;
-    --padding-start: 5px;
+    // --padding-start: 5px;
     font-size:18px;
     text-indent:1px;
-    padding-left: 10px !important;
+    // padding-left: 10px !important;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width: 90%;
+    // align-self: center;
   }
   ion-textarea{
    // height: 55px;
@@ -78,14 +95,17 @@ ion-content{
 
   }
 ion-item {
-  // border-radius: 50px;
-   height: 55px;
-   box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
-   --highlight-height: 0px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  top: 2px;
+  // width: 90%;
+  //  height: 55px;
+  //  box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+  //  --highlight-height: 0px;
 
    ion-input {
      font-size: 18px;
-     --padding-top: 20px;
+     --padding-top: 10px;
      --padding-bottom: 15px;
      --padding-start: 5px;
    }
@@ -124,4 +144,9 @@ ion-item {
 
 .one-image {
   margin: 2px;
+}
+ion-button{
+  width: 75%;
+  margin: auto;
+  bottom: 5px;
 }
