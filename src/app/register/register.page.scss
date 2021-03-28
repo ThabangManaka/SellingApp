@@ -1,93 +1,165 @@
-*{
+// *{
+//   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+// }
+// ion-toolbar {
+//   --background: #f5f5f3;
+//   ion-button {
+//     text-transform: initial;
+//     font-size: 17px;
+//   }
+// }
+
+// ion-content {
+//   --background: #f5f5f3;
+
+//   #header {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     h2 {
+//       font-weight: 700;
+//       font-size: 22px;
+//       color: #010100;
+//       margin-bottom: 0%;
+//       text-align: center;
+//       font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+//     }
+
+//     img {
+//       width: 95px;
+//       height: 70px;
+//       border-radius: 50%;
+//       border: 5px solid #a9e7f0;
+//     }
+//   }
+
+//   .form {
+//     margin-top: 1%;
+//     padding-left: 15px;
+//     padding-right: 15px;
+// }
+// }
+// [transparent]{
+//   --background: transparent;
+// }
+// ion-input{
+//   --color:#000;
+//   --padding-bottom:15px;
+//   --padding-top:15px;
+//   --padding-start: 5px;
+//   font-size:15px;
+//   text-indent:1px;
+//   padding-left: 10px !important;
+// }
+// ion-icon{
+//   width:20px;
+//   color: grey;
+// }
+// ion-item{
+//   --highlight-color-focused: transparent;
+//   --highlight-height:0;
+//   --highlight-color-invalid:#000;
+//   --highlight-color-valid:#ddd;
+//   --min-height: 50px;
+//   --padding-start:0;
+// }
+// ion-item {
+//   // border-radius: 50px;
+//    height: 55px;
+//    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+//    --highlight-height: 0px;
+
+//    ion-input {
+//      font-size: 18px;
+//      --padding-top: 20px;
+//      --padding-bottom: 15px;
+//      --padding-start: 5px;
+//    }
+
+//    a {
+//      font-size: 17px;
+//      letter-spacing: 0.5px;
+//      text-decoration: none;
+//    }
+//  }
+// .info{
+//   color:#000;
+//   opacity:.8;
+//   font-size:13px;
+//   display: block;
+//   text-align: center;
+// }
+
+ion-content{
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
 }
-ion-toolbar {
-  --background: #f5f5f3;
-  ion-button {
-    text-transform: initial;
-    font-size: 17px;
+
+.circleBase{
+  border-radius: 50%;
+}
+
+.type1{
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: linear-gradient(90deg, #2a58a8 0%, #2201A3 100%);
+  box-shadow: 0px 1px 10px rgba(98, 140, 255, 0.5);
+  top: -50px;
+  left: -50px;
+}
+
+.type2{
+  width: 75px;
+  height: 75px;
+  background: #000;
+}
+
+.circle1{
+  margin-left: 145px;
+  margin-top: 25px;
+}
+
+.circle2{
+  position: absolute;
+  top: 150px;
+  left: -20px;
+}
+.welcomeMessage{
+  position: absolute;
+  top: 70px;
+  left: 30px;
+  p{
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-top: 5px;
+    color: #ffffff;
   }
 }
-
-ion-content {
-  --background: #f5f5f3;
-
-  #header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    h2 {
-      font-weight: 700;
-      font-size: 22px;
-      color: #010100;
-      margin-bottom: 0%;
-      text-align: center;
-      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-
-    img {
-      width: 95px;
-      height: 70px;
-      border-radius: 50%;
-      border: 5px solid #a9e7f0;
-    }
+.error_message{
+  color: red;
+}
+ion-list{
+  background: transparent;
+  transform: translateY(13vh);
+  // top: 1px;
+  ion-item{
+    border: 1px solid #92949c;
+    border-radius: 10px;
+    height: 42px;
   }
-
-  .form {
-    margin-top: 1%;
-    padding-left: 15px;
-    padding-right: 15px;
+  .forgot-password{
+    text-align: right;
+    font-size: 12px;
+    color: var(--ion-color-primary);
+  }
 }
+ion-button{
+  width: 75%;
+  margin: auto;
 }
-[transparent]{
-  --background: transparent;
-}
-ion-input{
-  --color:#000;
-  --padding-bottom:15px;
-  --padding-top:15px;
-  --padding-start: 5px;
-  font-size:15px;
-  text-indent:1px;
-  padding-left: 10px !important;
-}
-ion-icon{
-  width:20px;
-  color: grey;
-}
-ion-item{
-  --highlight-color-focused: transparent;
-  --highlight-height:0;
-  --highlight-color-invalid:#000;
-  --highlight-color-valid:#ddd;
-  --min-height: 50px;
-  --padding-start:0;
-}
-ion-item {
-  // border-radius: 50px;
-   height: 55px;
-   box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
-   --highlight-height: 0px;
-
-   ion-input {
-     font-size: 18px;
-     --padding-top: 20px;
-     --padding-bottom: 15px;
-     --padding-start: 5px;
-   }
-
-   a {
-     font-size: 17px;
-     letter-spacing: 0.5px;
-     text-decoration: none;
-   }
- }
-.info{
-  color:#000;
-  opacity:.8;
-  font-size:13px;
-  display: block;
-  text-align: center;
+.login{
+  margin-top: 2vh;
+  font-size: 0.8rem;
 }

@@ -6,9 +6,64 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <div class="circleBase type2 circle1"></div>
+ <div class="circleBase type1"></div>
+ <div class="circleBase type2 circle2"></div>
 
-  <div id="header">
+ <ion-label class="welcomeMessage">
+  <ion-text color="light">Welcome back,</ion-text>
+  <ion-text color="light">
+    <p>Log In!</p>
+  </ion-text>
+</ion-label>
+
+<form id="form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
+  <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="mail-outline" slot="end"></ion-icon>
+      <ion-input type="text" name="email" formControlName="email" placeholder="Please enter email"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Email">
+       <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
+
+    <ion-item class="ion-margin-vertical">
+      <ion-icon name="lock-closed-outline" slot="end"></ion-icon>
+      <ion-input type="password" name="pasword" formControlName="password" placeholder="**********"></ion-input>
+    </ion-item>
+    <div>
+      <ng-container *ngFor="let validation of  valdationUserMessage.Password">
+        <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('email').touched)">
+          {{validation.message}}
+         </div>
+      </ng-container>
+    </div>
+
+    <ion-label class="forgot-password" routerLink="/forgot-password" color="medium">
+      <p>Forgot Password?</p>
+    </ion-label>
+
+    <ion-button expand="block" shape="round"  type="submit" routerink="/signin" [disabled]="!validationFormUser.valid">
+      login
+      <ion-icon name="enter-outline" slot="end"></ion-icon>
+      </ion-button>
+
+      <p class="signup">
+        <ion-note>
+          Not a member yet? <ion-text color="primary" routerLink="/register">Sign Up</ion-text>
+        </ion-note>
+      </p>
+  </ion-list>
+
+  
+</form>
+  <!-- <div id="header">
     <h2>Login to <br />Application</h2>
     <img src="../../assets/logo.png"/>
 
@@ -47,6 +102,6 @@
       <p class="info">Don't have an account? <span class="link-button" routerLink="/register" ><a>Sign Up</a></span></p>
 
 
-    </form>
+    </form> -->
 
 </ion-content>

@@ -1,54 +1,62 @@
 <ion-app>
-  <ion-menu menuId="main-menu" content-id="main" auto-hide>
+  <ion-menu menuId="main-menu" content-id="main" auto-hide >
 
-  <ion-content class="menu-content">
-    <div class="cover header-md mask" margin-bottom>
-      <img src="../assets/cover_menu_header.jpg" alt="menu-header">
-      <div class="avatar">
-        <!-- <img src="../assets/icon.png"> -->
-        <img src="../../assets/logo.png"/>
-         <div class="text-center">
+    <ion-content class="menu-content">
+      <div class="cover header-md mask" margin-bottom>
+        <img src="../assets/cover_menu_header.jpg" alt="menu-header">
+        <div class="avatar">
+          <!-- <img src="../assets/icon.png"> -->
+          <img src="../../assets/logo.png" />
+          <div class="text-center ">
 
-
-        <p>   <ion-icon name="person-outline" slot="start"></ion-icon>{{userDetail?.firstname}}</p>
-      <p>  <ion-icon name="mail-outline" slot="start"></ion-icon>{{userDetail?.email}}</p>
+            
+            <p>
+              <ion-icon name="person-outline" slot="start"></ion-icon>{{userDetail?.firstname}}
+            </p>
+            <p>
+              <ion-icon name="mail-outline" slot="start"></ion-icon>{{userDetail?.email}}
+            </p>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
 
-      <ion-list>
+      <ion-list lines="none">
         <ion-menu-toggle auto-hide="false">
           <ion-item routerLink="/tabs/advert">
-            <ion-icon name="camera-reverse-outline"></ion-icon>
+            <ion-icon name="camera-reverse-outline" ></ion-icon>
             <ion-label>Advert</ion-label>
-       </ion-item>
+          </ion-item>
 
-        <ion-item routerLink="/tabs/category">
-          <ion-icon name="reader-outline"></ion-icon>
-          <ion-label>Category</ion-label>
-     </ion-item>
-     <ion-item  routerLink="tabs/comment">
-      <ion-icon name="navigate-outline"></ion-icon>
-      <ion-label>Comment</ion-label>
-     </ion-item>
-     <ion-item  routerLink="tabs/profile">
-      <ion-icon name="person-outline"></ion-icon>
-       <ion-label> Profile</ion-label>
-     </ion-item>
-     <ion-item  routerLink="tabs/ratings">
-      <ion-icon name="chatbox-outline"></ion-icon>
-      <ion-label>Ratings & Reviews</ion-label>
-     </ion-item>
-     <ion-item  routerLink="/tabs/tab2">
-      <ion-icon name="pulse-outline"></ion-icon>
-      <ion-label> Selling</ion-label>
-     </ion-item>
-     <ion-button  color="secondary" expand="block" fill="solid" (click)="onLogout()">Logout</ion-button>
-    </ion-menu-toggle>
-    </ion-list>
+          <ion-item routerLink="/tabs/category" >
+            <ion-icon name="reader-outline" ></ion-icon>
+            <ion-label>Category</ion-label>
+          </ion-item>
+          <ion-item routerLink="tabs/comment" >
+            <ion-icon name="navigate-outline" ></ion-icon>
+            <ion-label>Comment</ion-label>
+          </ion-item>
+          <ion-item routerLink="tabs/profile">
+            <ion-icon name="person-outline" ></ion-icon>
+            <ion-label> Profile</ion-label>
+          </ion-item>
+          <ion-item routerLink="tabs/ratings" >
+            <ion-icon name="chatbox-outline" ></ion-icon>
+            <ion-label>Ratings & Reviews</ion-label>
+          </ion-item>
+          <ion-item routerLink="/tabs/tab2" >
+            <ion-icon name="pulse-outline" ></ion-icon>
+            <ion-label> Selling</ion-label>
+          </ion-item>
+
+          <ion-button expand="block" shape="round" (click)="onLogout()">
+            Logout
+            <ion-icon name="exit-outline" slot="end"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-list>
 
 
-  </ion-content>
+    </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
