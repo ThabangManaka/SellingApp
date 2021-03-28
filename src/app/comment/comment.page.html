@@ -1,40 +1,35 @@
-
-
 <ion-content>
 
-  <h2 class="ion-text-uppercase">Please rate our App</h2>
+  <h2 class="ion-text-uppercase">How would you rate our<br> App experience?</h2>
   <form [formGroup]="validationFormUser" (ngSubmit)="ratingForm(validationFormUser.value)">
+    <ion-list lines="none" class="ion-margin ion-padding ion-text-center">
+      <ion-item>
+        <ionic5-star-rating #rating activeColor="#ffb400" defaultColor="#aaaaaa" readonly="false"
+          (ratingChanged)="logRatingChange($event)" formControlName="starRating">
+        </ionic5-star-rating>
+      </ion-item>
 
-  <ion-card>
-  <ion-item>
-    <ionic5-star-rating #rating
-    activeColor ="#ffb400"
-    defaultColor = "#aaaaaa"
-    readonly = "false"
-    (ratingChanged)="logRatingChange($event)"
-    formControlName="starRating">
-</ionic5-star-rating>
-  </ion-item>
 
-    <ion-item>
-      <ion-textarea type="text" name="ratingDesc" formControlName="ratingDesc"  placeholder="Please give you're experience with the app">
+      <ion-textarea type="text" name="ratingDesc" formControlName="ratingDesc"
+        placeholder="Please give you're experience with the app">
       </ion-textarea>
-
-    </ion-item>
-    <ion-item lines="none">
       <div>
         <ng-container *ngFor="let validation of  valdationUserMessage.RatingDesc">
-         <div class="error_message" *ngIf="validationFormUser.get('ratingDesc').hasError(validation.type) && (validationFormUser.get('ratingDesc').dirty || validationFormUser.get('ratingDesc').touched)">
-          {{validation.message}}
-         </div>
+          <div class="error_message"
+            *ngIf="validationFormUser.get('ratingDesc').hasError(validation.type) && (validationFormUser.get('ratingDesc').dirty || validationFormUser.get('ratingDesc').touched)">
+            {{validation.message}}
+          </div>
         </ng-container>
       </div>
-    </ion-item>
-    <div class="sign-btn-wrap">
-      <ion-button type="submit" color="secondary" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Submit</ion-button>
-     </div>
+      
+      <div class="sign-btn-wrap">
+        <ion-button type="submit" shape="round" fill="solid" class="sign-btn"
+          [disabled]="!validationFormUser.valid">
+          Submit
+          <ion-icon name="enter-outline" slot="end"></ion-icon>
+        </ion-button>
+      </div>
 
-  </ion-card>
-
+    </ion-list>
   </form>
 </ion-content>

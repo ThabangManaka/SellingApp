@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button  routerLink="/tabs/tab1/{{products?.category}}">
@@ -6,10 +6,73 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content fullscreen>
-  <ion-card >
+<ion-content >
+  <div class="image-slider">
+    <!-- <i class="fi-rr-arrow-left" routerLink="/tabs/tab1/{{products?.category}}"></i> -->
+    <ion-icon slot="icon-only" name="arrow-back" routerLink="/tabs/tab1/{{products?.category}}"></ion-icon>
+    <ion-slides pager="true" class="product-slider">
+      <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
+        <img src="{{p}}" alt="">
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <div class="profile-info ion-padding">
+    <!-- <div class="user-info"> -->
+      <div class="basic-info">
+        <ion-row>
+          <ion-col>
+            <h1>{{products?.name}}</h1>
+          </ion-col>
+          <ion-col>
+            <h1>{{products?.price | currency:"R":"symbol"}}</h1>
+          </ion-col>
+        </ion-row>
+        <!-- <h1>{{products?.name}}</h1>
+        <h1>{{products?.price | currency:"R":"symbol"}}</h1> -->
+        <p>
+          <ion-icon name="location-outline" color="primary"></ion-icon><b> {{products?.location}}</b>
+        </p>
+      </div>
+    <!-- </div> -->
+      <div class="description">
+        <h5>Description</h5>
+        <ion-item>
+          {{products?.description}}
+        </ion-item>
+      </div>
+      <div class="my-profile">
+        <img src="../../assets/user.png">
+      <ion-label>
+        <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
+        <p (click)="sendEmail"><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
+        <p class="ion-text-right"><a (click)="presentModal()"  >View Profile</a></p>
+      </ion-label>
+      </div>
+      <ion-footer class="action-buttons">
+        <h5>Contact Seller</h5>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button shape="block" fill="solid" color="warning">
+                <ion-icon name="mail-outline"></ion-icon>Email</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button shape="block" fill="solid" href="{{url}}" color="success">
+                <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button color="primary" class="ion-text-wrap min-max-width"    shape="block" fill="solid" (click)="sendSMS()"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button color="secondary" class="ion-text-wrap min-max-width"   shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-footer>
+  </div>
+  <!-- <ion-card >
     <ion-slides pager="true" class="product-slider">
       <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
         <img src="{{p}}">
@@ -46,27 +109,27 @@
         </ul>
       </div>
     </ion-card>
-  </ion-card>
+  </ion-card> -->
 
 
 
-  <ion-item lines="none">
+  <!-- <ion-item lines="none"> -->
     <!-- <ion-card> -->
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row>
           <ion-col>
-           <p class="text-align-center"><b>Chat with seller</b></p>
+           <p class="text-align-center"><b>Chat with seller</b></p> -->
            <!-- <P>{{products?.phone}}</P> -->
-          </ion-col>
+          <!-- </ion-col>
           <ion-col>
             <p></p>
            <ion-button shape="block" fill="solid" href="{{url}}" color="success">
              <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
          </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
    <!-- </ion-card> -->
-   </ion-item>
+   <!-- </ion-item>
 
   <ion-card class="user-details">
     <p class="ion-text-left"><b>Seller description</b></p>
@@ -94,6 +157,6 @@
     </ion-row>
     </ion-grid>
 
-</ion-item>
+</ion-item> -->
 
 </ion-content>
