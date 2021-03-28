@@ -48,25 +48,7 @@
     </ion-card>
   </ion-card>
 
-  <!-- <ion-card class="location">
-    <div class="location-details">
-      <p class="ion-text-left"><b>Location</b></p>
-      <p>
-        <ion-icon name="location-outline" color="primary"></ion-icon><b> {{products?.location}}</b>
-      </p>
-    </div>
-  </ion-card> -->
 
-  <!-- <ion-card class="descDetail">
-    <div class="innerDetail">
-      <p class="ion-text-left"><b>Description</b></p>
-      <ul>
-        <li>
-          <ion-label>{{products?.description}}</ion-label>
-        </li>
-      </ul>
-    </div>
-  </ion-card> -->
 
   <ion-item lines="none">
     <!-- <ion-card> -->
@@ -92,15 +74,15 @@
       <img src="../../assets/user.png">
       <ion-label>
         <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
-        <p><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
-        <p><ion-icon name="call-outline" color="primary"></ion-icon> {{products?.phone}}</p>
-        <p><a [routerLink]="['/','tabs','tab1',products?.category,products?.key,products?.sellerEmail]" >View Profile</a></p>
+        <p (click)="sendEmail"><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
+
+        <p><a (click)="presentModal()" >View Profile</a></p>
       </ion-label>
     </div>
   </ion-card>
 
 <ion-item lines="none">
-  <!-- <ion-card> -->
+
     <ion-grid>
     <ion-row>
       <ion-col >
@@ -111,7 +93,7 @@
       </ion-col>
     </ion-row>
     </ion-grid>
-  <!-- </ion-card>  -->
+
 </ion-item>
 
 </ion-content>

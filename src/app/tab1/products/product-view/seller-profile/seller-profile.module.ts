@@ -15,6 +15,9 @@ import { SellerProfilePage } from './seller-profile.page';
     IonicModule,
     SellerProfilePageRoutingModule
   ],
-  declarations: [SellerProfilePage]
+  declarations: [SellerProfilePage],
+  exports: [
+    SellerProfilePage,
+  ]
 })
 export class SellerProfilePageModule {}

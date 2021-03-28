@@ -33,7 +33,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'tabs',
     pathMatch: 'full'
+  },  {
+    path: 'edit-profile',
+    loadChildren: () => import('./edit-profile/edit-profile.module').then( m => m.EditProfilePageModule)
   },
+
   // {
   //   path: 'advert',
   //   loadChildren: () => import('./advert/advert.module').then( m => m.AdvertPageModule)

@@ -1,3 +1,4 @@
+import { user } from './../model/User';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
@@ -20,6 +21,12 @@ export class UserService {
        return { id, ... obj };
       })
     )
+
+  }
+
+  updateUser(id: string, user :user){{
+    return this.firestore.collection('/users/').doc(id).update(user)
+  }
 
   }
 }

@@ -5,8 +5,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { AngularFireAuth } from '@angular/fire/auth'
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AlertController ,ToastController } from '@ionic/angular';
+import { AlertController ,ModalController,ToastController } from '@ionic/angular';
 import { UserService } from '../service/user.service';
+import { EditProfilePage } from '../edit-profile/edit-profile.page';
 
 @Component({
   selector: 'app-profile',
@@ -23,13 +24,20 @@ export class ProfilePage implements OnInit {
 	username: string
 	profilePic: string
   TotalSold: number;
+  slideOpt ={
 
+
+    slidesPerView: 2.0,
+    // slidesPerColumn: 2,
+
+  }
   mainuser: AngularFirestoreDocument
   constructor( private productService:ProductService,
     public alertController: AlertController,
     private toastController: ToastController,
      private afAuth: AngularFireAuth,
      private userService : UserService,
+     private modalController: ModalController,
      private secureStorageService : SecureStorageService,
      private authService : AuthService ) {
       this.afAuth.authState.subscribe(user => {
@@ -48,9 +56,6 @@ export class ProfilePage implements OnInit {
    this.userDetail =res
    console.log(this.userDetail)
 
-      this.authService.getProfileId(this.userDetail.email).subscribe(res => {
-        console.log(res)
-      })
    this.productService.getProductbyEmail(this.userDetail.email).subscribe(res => {
 
     this.countItems = res.length
@@ -112,5 +117,12 @@ async onSoldItems(item){
   await alert.present();
 }
 
+ async presentModal() {
+  const modal = await this.modalController.create({
+    component: EditProfilePage,
+    componentProps: this.userProfile
+});
+return await modal.present();
+}
 
 }

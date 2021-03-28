@@ -21,6 +21,8 @@ import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { DatePipe } from '@angular/common';
 import { Badge } from '@ionic-native/badge/ngx';
+import { HttpClientModule } from  '@angular/common/http';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 
 
 @NgModule({
@@ -29,9 +31,14 @@ import { Badge } from '@ionic-native/badge/ngx';
   imports: [BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
    StarRatingModule,
+
     AngularFirestoreModule, // firestore
-    AngularFireAuthModule, AngularFireStorageModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [ImagePicker,CallNumber,SMS,AndroidPermissions,Badge,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+     IonicModule.forRoot(),
+     HttpClientModule,
+      AppRoutingModule],
+  providers: [ImagePicker,CallNumber,EmailComposer,SMS,AndroidPermissions,Badge,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SecureStorageService,CurrencyPipe, DatePipe ],
 
   bootstrap: [AppComponent],

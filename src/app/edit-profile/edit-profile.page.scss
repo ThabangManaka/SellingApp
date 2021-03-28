@@ -9,7 +9,12 @@ ion-content {
       margin-bottom: 1em
   }
 }
-
+ion-title{
+  --color: #fff;
+  ion-icon {
+    --color: #fff;
+  }
+}
 ion-toolbar {
   --background: transparent;
 }
@@ -45,12 +50,12 @@ ion-chip {
 
 .card-body {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 30px;
   height: calc(100vh - (200px + 56px));
   overflow: hidden;
 
   .user-meta {
-      padding-top: 10px;
+      padding-top: 40px;
 
       .playername {
           font-size: 24px;
@@ -68,18 +73,57 @@ ion-chip {
 }
 .imgSlide{
   width:100%;
-  height: 70.66px;
+  height: 75.66px;
   object-fit: cover;
 }
 ion-card{
   --background:  #f5f5f3;
 }
-// .slideCard{
-//   height: 80.66px;
-// }
-// img{
-//   width: 100%;
-//   height: 150px;
-//   border: 2px solid #ccc;
-//   border-radius: 1px;
-// }
+
+.my-card {
+
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.19);
+  margin: auto;
+
+  }
+
+  ion-input{
+    --color:#000;
+    --padding-bottom:15px;
+    --padding-top:15px;
+    --padding-start: 5px;
+    font-size:15px;
+    text-indent:1px;
+    padding-left: 10px !important;
+  }
+  ion-item{
+    --highlight-color-focused: transparent;
+    --highlight-height:0;
+    --highlight-color-invalid:#000;
+    --highlight-color-valid:#ddd;
+    --min-height: 65px;
+    --padding-start:0;
+  }
+  ion-text{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  }
+  ion-input {
+    font-size: 18px;
+    --padding-top: 20px;
+    --padding-bottom: 15px;
+    --padding-start: 5px;
+  }
+
+  ion-icon{
+    width:20px;
+    color: grey;
+  }
+  .filebtn {
+    opacity: 0;
+    position: absolute;
+    top: -100em;
+    left: -100em;
+  }
+  

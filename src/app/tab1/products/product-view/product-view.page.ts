@@ -5,7 +5,9 @@ import { ProductService } from 'src/app/service/product.service';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { SMS } from '@ionic-native/sms/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
-import { ToastController } from '@ionic/angular';
+import { ModalController, ToastController } from '@ionic/angular';
+import { SellerProfilePage } from './seller-profile/seller-profile.page';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.page.html',
@@ -20,7 +22,9 @@ export class ProductViewPage implements OnInit {
     private route: ActivatedRoute,
     private callNumber: CallNumber,
     private sms: SMS,
+    private modalController: ModalController,
     public toastController: ToastController,
+    private emailComposer: EmailComposer,
     public androidPermissions: AndroidPermissions) { }
 
   ngOnInit() {
@@ -75,4 +79,27 @@ async sendSMS(){
       this.presentToast(e);
     }
   }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component:  SellerProfilePage,
+      componentProps:{ value:  this.id}
+
+  });
+  return await modal.present();
+  }
+
+  sendEmail() {
+    this.emailComposer.isAvailable().then((available: boolean) => {
+      if (available) {
+      }
+    });
+
+    let email = {
+      to: 'thabangdansteyn@gmail.com',
+      subject: 'Cordova Icons',
+      body: 'How are you? Nice greetings from Leipzig',
+      isHtml: true
+    };
+    this.emailComposer.open(email);
+}
 }

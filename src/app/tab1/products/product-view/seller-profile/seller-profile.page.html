@@ -1,8 +1,8 @@
 <ion-header translucent no-border>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="light">
-        <ion-icon slot="start" name="arrow-back"></ion-icon> <ion-icon slot="start" name="ios-arrow-back"></ion-icon>
+      <ion-button color="light" (click)="close()" >
+        <ion-icon  slot="start" name="arrow-back"></ion-icon>
 
       </ion-button>
     </ion-buttons>
@@ -24,9 +24,9 @@
       </div>
       <div class="card-body">
         <div class="user-meta ion-text-center">
-          <h3 class="playername">{{userDetail?.firstname}} {{userDetail?.lastname}}</h3>
+          <h3 class="playername">{{userDetail?.sellerFirstName}} {{userDetail?.sellerLastName}}</h3>
           <h5 class="country"> <ion-icon  name="mail-outline"></ion-icon>
-            {{userDetail?.email}} </h5>
+            {{userDetail?.sellerEmail}} </h5>
           <h6 class="ranking">Published Items: <ion-chip>
               <ion-label>2</ion-label>
             </ion-chip>

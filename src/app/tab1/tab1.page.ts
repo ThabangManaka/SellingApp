@@ -145,5 +145,14 @@ export class Tab1Page implements OnInit {
       console.error(e);
     }
   }
+ async clearBadges(){
+  try {
+    let badge = await this.badge.clear
+  }catch (e) {
+    console.error(e);
+  }
+
+ }
+
 
 }

@@ -1,74 +1,56 @@
-<!-- <ion-header>
+<ion-header translucent no-border>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button  color="light"  (click)="presentModal()" >
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+  </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
-<ion-content >
-  <div class="header" >
-    <!-- <h2>{{userDetail.firstname}} {{userDetail.lastname}}</h2> -->
-    <h2>{{userDetail?.firstname }} {{userDetail?.lastname}}</h2>
 
-    <div class="space-between">
- <p>{{userDetail?.email}}</p>
+<ion-content fullscreen="true" slot="fixed" >
 
-  <p>{{userProfile?.phone}}</p>
+  <div class="card">
+    <div class="header">
+      <div class="avatar">
+        <img src="../../assets/player104.png"  alt="">
+      </div>
     </div>
+
+    <img src="{{userProfile?.profilePic}}"  alt="">
+    <div class="card-body">
+      <div class="user-meta ion-text-center">
+        <h3 class="playername">{{userProfile?.firstname}} {{userProfile?.lastname}}</h3>
+        <h5 class="country"> <ion-icon  name="mail-outline"></ion-icon>
+          {{userProfile?.email}} </h5>
+          <ion-label>
+            <h4><b>Member Since {{createDate | date :'d MMM yyy'  }}</b></h4>
+            <!-- <p>Selling for 1+ months</p> -->
+          </ion-label>
+        <h6 class="ranking">Items Sold: <ion-chip>
+            <ion-label>{{TotalSold}}</ion-label>
+          </ion-chip>
+        </h6>
+        <h6 class="ranking">Published Items: </h6>
+      </div>
+<ion-card>
+      <ion-slides [options]="slideOpt" >
+        <ion-slide *ngFor="let p of products">
+          <ion-card  class="slideCard">
+          <img class="imgSlide" src="{{p.multiImages[0]}}" />
+          <ion-label>
+          <h4 ><b>{{p.price| currency: 'R':'symbol':'1.2'}}</b></h4>
+          </ion-label>
+
+          <h6 >{{p.name}}</h6>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-card>
+    </div>
+
   </div>
 
-  <div class="flex">
-    <div class="border-blue">
-      <div class="border-white">
-        <div class="img-box">
-          <img src="../../assets/user.png">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <ion-card>
-    <ion-item lines="none" >
-      <!-- <ion-avatar slot="start">
-        <img src="../../assets/user.png">
-      </ion-avatar> -->
-      <ion-label>
-        <h4><b>Member Since {{createDate | date :'d MMM yyy'  }}</b></h4>
-        <!-- <p>Selling for 1+ months</p> -->
-      </ion-label>
-    </ion-item>
-
-    <div class="spaces">
-      <div class="ads">
-        <ion-badge color="primary">{{countItems}}</ion-badge>
-        <h4>Active Items</h4>
-      </div>
-
-      <div class="ads">
-        <ion-badge color="primary">{{TotalSold}}</ion-badge>
-        <h4>Sold Items</h4>
-      </div>
-    </div>
-  </ion-card>
-
-  <ion-card>
-    <ion-item lines="none">
-      <h3><b>Published Items</b></h3>
-    </ion-item>
-
-    <ion-grid>
-      <ion-row *ngFor="let p of products">
-        <ion-col size="6">
-          <img src={{p.multiImages[0]}}>
-       <ion-label>
-         <p><b>{{p.name}}</b></p>
-         <p>{{p.price| currency: 'R':'symbol':'1.2'}}</p>
-         <p>Centurion</p>
-       </ion-label>
-
-       <ion-button (click)="onSoldItems(p)"> Item Sold</ion-button>
-        </ion-col>
-
-      </ion-row>
-    </ion-grid>
-  </ion-card>
 </ion-content>
