@@ -45,9 +45,9 @@ launchDialer(n:any){
   .catch(() => console.log('Error launching dialer'));
 }
 
-sendSms(n:any) {
-  this.sms.send(n, 'Hello world!');
-}
+// sendSms(n:any) {
+//   this.sms.send(n, 'Hello world!');
+// }
 
 async presentToast(msg: string) {
   const toast = await this.toastController.create({
@@ -56,7 +56,7 @@ async presentToast(msg: string) {
   });
   toast.present();
 }
-async sendSMS(){
+async sendSMS(n:any){
   this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.SEND_SMS).then(
     result => console.log('Has permission?'+result.hasPermission),
     err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.SEND_SMS )
@@ -69,7 +69,7 @@ async sendSMS(){
           }
       };
       try{
-      await this.sms.send('0799685263'.toString(),'Hello ',options);
+      await this.sms.send(n.toString(),'Hello ',options);
       console.log("sent");
       this.presentToast("mensage sent");
     }

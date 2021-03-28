@@ -74,7 +74,7 @@
       <img src="../../assets/user.png">
       <ion-label>
         <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
-        <p (click)="sendEmail"><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
+        <p ><ion-icon (click)="sendEmail" name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
 
         <p><a (click)="presentModal()" >View Profile</a></p>
       </ion-label>
@@ -86,7 +86,7 @@
     <ion-grid>
     <ion-row>
       <ion-col >
-        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full"  shape="block" fill="solid" (click)="sendSMS()"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
+        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full"  shape="block" fill="solid" (click)="sendSMS(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
       </ion-col>
       <ion-col >
         <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full" shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
