@@ -1,21 +1,24 @@
-<ion-header>
+<ion-header class="ion-no-border">
 
-  <ion-toolbar color="primary">
+  <ion-toolbar >
     <ion-buttons slot="start">
       <ion-button routerLink="/">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
 
-    <ion-searchbar debounce="300" #search (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
+    <ion-searchbar class="searchbar-input" debounce="300" #search (ionChange)="searchproducts($event)" placeholder="Search a Product.."></ion-searchbar>
   </ion-toolbar>
 
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  
+ 
+
   <ion-row class="sell-Items">
     <ion-col size="6" *ngFor="let p of filteredProducts" class="ion-text-left">
-      <ion-card class="ion-no-margin " [routerLink]="['/','tabs','tab1',p.category,p.key]">
+      <ion-card class="ion-no-margin" [routerLink]="['/','tabs','tab1',p.category,p.key]">
         <ion-label>
          <img src={{p.multiImages[0]}}>
           <p class="price">{{p.price| currency: 'R':'symbol':'1.2'}}</p>
