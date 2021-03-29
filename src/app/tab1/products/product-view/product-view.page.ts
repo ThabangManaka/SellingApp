@@ -56,7 +56,7 @@ async presentToast(msg: string) {
   });
   toast.present();
 }
-async sendSMS(n:any){
+async sendSMS(n:string){
   this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.SEND_SMS).then(
     result => console.log('Has permission?'+result.hasPermission),
     err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.SEND_SMS )
@@ -69,7 +69,7 @@ async sendSMS(n:any){
           }
       };
       try{
-      await this.sms.send(n.toString(),'Hello ',options);
+      await this.sms.send('0799685263','Hello ',options);
       console.log("sent");
       this.presentToast("mensage sent");
     }
@@ -95,7 +95,7 @@ async sendSMS(n:any){
     });
 
     let email = {
-      to: 'thabangdansteyn@gmail.com',
+      to: this.products.sellerEmail,
       subject: 'Cordova Icons',
       body: 'How are you? Nice greetings from Leipzig',
       isHtml: true

@@ -29,10 +29,7 @@
             <h4><b>Member Since {{createDate | date :'d MMM yyy'  }}</b></h4>
             <!-- <p>Selling for 1+ months</p> -->
           </ion-label>
-        <h6 class="ranking">Items Sold: <ion-chip>
-            <ion-label>{{TotalSold}}</ion-label>
-          </ion-chip>
-        </h6>
+
         <h6 class="ranking">Published Items: </h6>
       </div>
 <ion-card>
@@ -42,6 +39,7 @@
           <img class="imgSlide" src="{{p.multiImages[0]}}" />
           <ion-label>
           <h4 ><b>{{p.price| currency: 'R':'symbol':'1.2'}}</b></h4>
+       
           </ion-label>
 
           <h6 >{{p.name}}</h6>
