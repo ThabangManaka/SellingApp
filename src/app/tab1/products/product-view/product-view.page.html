@@ -1,17 +1,17 @@
-<!-- <ion-header>
-  <ion-toolbar color="primary">
+<ion-header class="ion-no-border">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button  routerLink="/tabs/tab1/{{products?.category}}">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content >
   <div class="image-slider">
     <!-- <i class="fi-rr-arrow-left" routerLink="/tabs/tab1/{{products?.category}}"></i> -->
-    <ion-icon slot="icon-only" name="arrow-back" routerLink="/tabs/tab1/{{products?.category}}"></ion-icon>
+    <!-- <ion-icon slot="icon-only" name="arrow-back" routerLink="/tabs/tab1/{{products?.category}}"></ion-icon> -->
     <ion-slides pager="true" class="product-slider">
       <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
         <img src="{{p}}" alt="">
@@ -47,7 +47,7 @@
       <ion-label>
         <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
         <p (click)="sendEmail"><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
-        <p class="ion-text-right"><a (click)="presentModal()"  >View Profile</a></p>
+        <p><a (click)="presentModal()" >View Profile</a></p>
       </ion-label>
       </div>
       <ion-footer class="action-buttons">
