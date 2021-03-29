@@ -63,7 +63,7 @@
                 <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
             </ion-col>
             <ion-col size="6">
-              <ion-button color="primary" class="ion-text-wrap min-max-width"    shape="block" fill="solid" (click)="sendSMS()"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
+              <ion-button color="primary" class="ion-text-wrap min-max-width"    shape="block" fill="solid" (click)="sendSMS(products?.phone)"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
             </ion-col>
             <ion-col size="6">
               <ion-button color="secondary" class="ion-text-wrap min-max-width"   shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
@@ -72,91 +72,7 @@
         </ion-grid>
       </ion-footer>
   </div>
-  <!-- <ion-card >
-    <ion-slides pager="true" class="product-slider">
-      <ion-slide class="slidess" *ngFor="let p of products?.multiImages">
-        <img src="{{p}}">
-      </ion-slide>
-    </ion-slides>
-    <ion-card-header>
-      <ion-row>
-        <ion-col size="12">
-      <ion-card-title>{{products?.name}}</ion-card-title>
-
-      </ion-col>
-      </ion-row>
-
-        <ion-row>
-          <ion-col size="6">
-            <ion-card-subtitle color="primary">{{products?.price | currency:"R":"symbol"}}</ion-card-subtitle>
-          </ion-col>
-          <ion-col size="6">
-            <ion-card-subtitle>
-              <ion-icon name="location-outline" color="primary"></ion-icon><b> {{products?.location}}</b>
-            </ion-card-subtitle>
-          </ion-col>
-        </ion-row>
-
-    </ion-card-header>
-
-    <ion-card class="descDetail">
-      <div class="innerDetail">
-        <p class="ion-text-left"><b>Description</b></p>
-        <ul>
-          <li>
-            <ion-label>{{products?.description}}</ion-label>
-          </li>
-        </ul>
-      </div>
-    </ion-card>
-  </ion-card> -->
 
 
-
-  <!-- <ion-item lines="none"> -->
-    <!-- <ion-card> -->
-      <!-- <ion-grid>
-        <ion-row>
-          <ion-col>
-           <p class="text-align-center"><b>Chat with seller</b></p> -->
-           <!-- <P>{{products?.phone}}</P> -->
-          <!-- </ion-col>
-          <ion-col>
-            <p></p>
-           <ion-button shape="block" fill="solid" href="{{url}}" color="success">
-             <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp</ion-button>
-         </ion-col>
-        </ion-row>
-      </ion-grid> -->
-   <!-- </ion-card> -->
-   <!-- </ion-item>
-
-  <ion-card class="user-details">
-    <p class="ion-text-left"><b>Seller description</b></p>
-    <div class="user">
-      <img src="../../assets/user.png">
-      <ion-label>
-        <h2>{{products?.sellerFirstName}} {{products?.sellerLastName}}</h2>
-        <p (click)="sendEmail"><ion-icon name="mail-outline" color="primary"></ion-icon> {{products?.sellerEmail}}</p>
-
-        <p><a (click)="presentModal()" >View Profile</a></p>
-      </ion-label>
-    </div>
-  </ion-card>
-
-<ion-item lines="none">
-
-    <ion-grid>
-    <ion-row>
-      <ion-col >
-        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full"  shape="block" fill="solid" (click)="sendSMS()"><ion-icon name="chatbox-outline"></ion-icon> SMS</ion-button>
-      </ion-col>
-      <ion-col >
-        <ion-button color="secondary" class="ion-text-wrap min-max-width"  expand="full" shape="block" fill="solid" (click)="launchDialer(products?.phone)"><ion-icon name="call-outline"></ion-icon> CALL</ion-button>
-      </ion-col>
-    </ion-row>
-    </ion-grid>
-
-</ion-item> -->
 
 </ion-content>
