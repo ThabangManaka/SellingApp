@@ -48,7 +48,10 @@
 
         </ion-card>
 
-        <ion-button type="submit" color="secondary" shape="block" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">Update </ion-button>
+        <ion-button type="submit" shape="round" fill="solid" class="sign-btn" [disabled]="!validationFormUser.valid">
+          Update 
+          <ion-icon name="save-outline" slot="end"></ion-icon>
+        </ion-button>
       </form>
       </div>
 
